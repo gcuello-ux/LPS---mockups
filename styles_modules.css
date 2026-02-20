@@ -1,0 +1,561 @@
+/* ==========================================
+   Custom Fonts — Styrene (local files)
+   ========================================== */
+
+/* Regular */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Regular.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Italic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Medium.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-MediumItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Bold.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-BoldItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* styles_modules.css */
+
+:root {
+    --red-dark: #5B000B;
+    --red: #BA1F22;
+    --gold: #FFB829;
+    --gold-dark: #E87205;
+    --beige: #F5F1EF;
+    --gray-light: #F9F9F9;
+    --text: #000;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans 3', sans-serif;
+    background-color: #FFFFFF;
+    color: #000000;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #000000;
+}
+
+.highlight { color: var(--red); }
+
+/* Hero - repurposed */
+.hero { 
+    /* Styles from previous LP */
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 40px 0;
+}
+
+/* Difference Section */
+.difference {
+    padding: 60px 0;
+    background-color: #FFFFFF;
+}
+
+.difference h2 {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+.subtext {
+    font-size: 16px;
+    color: #000000;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.tabs {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    justify-content: center;
+}
+
+.tab-btn {
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    background-color: #F5F1EF;
+    border: none;
+    padding: 10px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--red-dark);
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.tab-btn.active {
+    background-color: #E8730541;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+thead th {
+    background-color: #5B000B;
+    color: #FFFFFF;
+    padding: 16px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+thead th:first-child {
+    background-color: transparent;
+}
+
+tbody td {
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 14px;
+    border-top: 1px solid #E6E6E6;
+    border-bottom: 1px solid #E6E6E6;
+}
+
+tbody td.category {
+    background-color: #FFB829;
+    color: #000000;
+    font-weight: 700;
+    border-radius: 8px 0 0 8px;
+    border-left: 1px solid #FFB829;
+}
+
+tbody td:last-child {
+    border-radius: 0 8px 8px 0;
+    border-right: 1px solid #E6E6E6;
+}
+
+tbody td:first-child {
+    border-left: 1px solid #E6E6E6;
+}
+
+/* Students Section */
+.students {
+    padding: 80px 0;
+    background: #FFFFFF;
+    text-align: center;
+}
+
+.students h2 {
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+}
+
+.student-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 60px;
+    max-width: 1100px;
+    margin: 0px 30px auto;
+}
+
+.student-card {
+    background: var(--beige);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.student-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.photo-container {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    border-radius: 50% 50% 50% 0px;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.4s ease;
+}
+
+.student-card:hover .photo {
+    transform: scale(1.08);
+}
+
+/* Placeholder colors if no real images yet */
+.photo-paige   { background: #A8DADC; }
+.photo-cindy   { background: #E9C46A; }
+.photo-jacob   { background: #2A9D8F; }
+
+/* Real images – replace with your URLs */
+.photo-paige   { background-image: url('path/to/paige.jpg'); }
+.photo-cindy   { background-image: url('path/to/cindy.jpg'); }
+.photo-jacob   { background-image: url('path/to/jacob.jpg'); }
+
+.info {
+    padding: 24px 28px 32px;
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-weight: 500;
+    text-align: left;
+}
+
+.meet {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+}
+
+.name {
+    font-size: 1.8rem;
+    color: #000;
+    padding-bottom: 28px;
+    margin-bottom: 28px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #777;
+    line-height: 1.1;
+}
+
+.learn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #BA1F22;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.learn-more:hover {
+    background: #5B000B;
+    transform: translateY(-2px);
+}
+
+.arrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.photo-placeholder {
+    width: 150px;
+    height: 150px;
+    background: #B9B9B9;
+    border-radius: 50%;
+    margin-bottom: 16px;
+}
+
+/* Events Section */
+.events {
+    padding: 60px 0;
+}
+
+.view-all {
+    display: block;
+    text-align: right;
+    color: #BA1F22;
+    margin-bottom: 24px;
+}
+
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+}
+
+.event-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.image-placeholder {
+    height: 200px;
+    background: #B9B9B9;
+}
+
+/* eBook Section */
+.ebook {
+    padding: 60px 0;
+    background: #FFFFFF;
+}
+
+.ebook-content {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.ebook-image-placeholder {
+    width: 40%;
+    height: 300px;
+    background: #B9B9B9;
+}
+
+.benefits {
+    flex: 1;
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.benefit span {
+    margin-right: 12px;
+    color: #4CAF50;
+}
+
+/* Testimonial */
+.testimonial {
+    padding: 60px 0;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+blockquote {
+    font-size: 1.95rem;
+    font-style: italic;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.author {
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: 16px;
+    color: var(--red);
+    font-style: normal;
+}
+
+/* Accreditations Carousel */
+.accreditations {
+    padding: 60px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.accreditations .container h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    line-height: 3rem;
+}
+
+.logo-carousel {
+    overflow: hidden;
+    position: relative;
+}
+
+.logo-track {
+    display: flex;
+    animation: scroll 20s linear infinite;
+    gap: 32px;
+}
+
+.logo-placeholder {
+    width: 150px;
+    height: 80px;
+    background: #B9B9B9;
+    flex-shrink: 0;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Assuming duplicated logos */
+}
+
+/* Fade effect */
+.logo-carousel::before, .logo-carousel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100px;
+    z-index: 1;
+}
+
+.logo-carousel::before {
+    left: 0;
+    background: linear-gradient(to right, #FFFFFF, transparent);
+}
+
+.logo-carousel::after {
+    right: 0;
+    background: linear-gradient(to left, #FFFFFF, transparent);
+}
+
+/* FAQs */
+.faqs {
+    padding: 60px 0;
+}
+
+.faqs .container h2 {
+    text-align: left;
+    font-size: 2.2rem;
+    line-height: 3rem;
+}
+
+.accordion-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-content {
+    display: none;
+    padding: 16px;
+}
+
+/* Footer */
+.footer {
+    background: #BA1F22;
+    color: white;
+    padding: 40px 0;
+    text-align: center;
+}
+
+/* QR Sticky */
+.qr-sticky {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.qr-btn {
+    background: #BA1F22;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.qr-popup {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: white;
+    padding: 16px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.qr-placeholder {
+    width: 150px;
+    height: 150px;
+    background: #B9B9B9;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .ebook-content {
+        flex-direction: column;
+    }
+
+    .ebook-image-placeholder {
+        width: 100%;
+    }
+
+    .student-grid, .event-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tabs {
+        justify-content: center;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    thead th, tbody td {
+        padding: 12px;
+    }
+}

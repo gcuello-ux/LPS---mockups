@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGA Difference - Module</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+   /* ==========================================
+   Custom Fonts — Styrene (local files)
+   ========================================== */
+
+/* Regular */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Regular.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Italic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Medium.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-MediumItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Bold.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-BoldItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+        :root {
+            /* Blue Palette */
+            --blue-dark: #0D1B52;
+            --blue-mid: #1B307B;
+            --blue-reg: #2945A3;
+            --blue-light: #375ACC;
+            
+            /* Red Palette */
+            --red-dark: #5B000B;
+            --red-mid: #770A17;
+            --red-reg: #98151C;
+            --red-light: #BA1F22;
+
+            /* Gold Palette */
+            --gold-dark: #E87205;
+            --gold-mid: #FA8B1B;
+            --gold-reg: #FDA002;
+            --gold-light: #FFB829;
+
+            /* Support Palette */
+            --black: #000000;
+            --grey-dark: #B9B9B9;
+            --grey-light: #E6E6E6;
+            --beige: #F5F1EF;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'Source Sans 3', sans-serif;
+            background-color: var(--white);
+            margin: 0;
+            padding: 40px 20px;
+            color: var(--blue-dark);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Styrene', 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 26px;
+            color:#000000;
+        }
+
+        h1 span {
+            color: var(--red-light);
+            font-style: italic;
+        }
+
+        h2.section-title {
+            font-family: 'Styrene', 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color:#000000;
+        }
+
+        .subtitle {
+            color: var(--black);
+            margin-bottom: 40px;
+            text-align: center;
+
+        }
+
+        /* Pill Buttons Navigation */
+        .tabs-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .pill-btn {
+            padding: 10px 30px;
+            border-radius: 50px;
+            border: 1px solid var(--grey-light);
+            background: var(--white);
+            cursor: pointer;
+            font-family: 'Source Sans 3', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            color: var(--blue-dark);
+        }
+
+        .pill-btn:hover {
+            background-color: var(--beige);
+        }
+
+        .pill-btn.active {
+            background-color: #FFDAB9;
+            border-color: var(--gold-mid);
+        }
+
+        /* Content Sections */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Table Styling */
+        .cga-table {
+            display: grid;
+            grid-template-columns: 180px 1fr 1fr 1fr;
+            gap: 10px;
+            text-align: left;
+        }
+
+        .table-header {
+            font-weight: 700;
+            color: var(--white);
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            text-align: center;
+        }
+
+        .header-lorem { background-color: var(--red-dark); }
+        .header-cga { background-color: var(--red-reg); }
+        .header-online { background-color: var(--red-mid); }
+        .header-traditional { background-color: var(--red-dark); }
+
+        .row-label {
+            background-color: var(--gold-mid);
+            color: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .table-cell {
+            background-color: var(--beige);
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Highlight border for CGA Online column */
+        .highlight-col {
+            border: 3px solid var(--gold-mid);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cga-table {
+                grid-template-columns: 1fr;
+            }
+            .table-header { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero-module">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="https://cdn.pixabay.com/video/2022/09/04/130213-748134209_large.mp4" type="video/mp4">
+    </video>
+    
+    <div class="hero-overlay"></div>
+
+    <nav class="hero-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="images/SVG/CGA_solid_white_logo.svg" alt="CGA Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">DISCOVER ▾</a></li>
+                <li><a href="#">ACADEMICS ▾</a></li>
+                <li><a href="#">ADMISSIONS ▾</a></li>
+                <li><a href="#">BEYOND THE CLASSROOM ▾</a></li>
+                <li><a href="#">BLOG</a></li>
+            </ul>
+            <a href="#" class="btn-enquire">ENQUIRE</a>
+        </div>
+    </nav>
+
+    <div class="hero-content">
+        <h1 class="hero-title">
+            A World-Class,<br>
+            <span class="highlight-gold">Online Private School</span>
+        </h1>
+        <p class="hero-description">
+            Internationally-accredited, online private school for ages 7 - 18. Igniting a passion for learning that accelerates academic performance and personal success, regardless of age. Ranked Top 3 Online High School.
+        </p>
+        <div class="hero-cta-group">
+            <a href="#" class="btn-outline">DOWNLOAD PROSPECTUS</a>
+            <a href="#" class="btn-solid">ENROL NOW <span class="arrow">›</span></a>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* RESET & CORE HERO STYLES */
+    .hero-module {
+        position: relative;
+        height: 100vh;
+        width: 100%;
+        margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        color: white;
+        font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .hero-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4); /* Darkens video for text contrast */
+        z-index: 2;
+    }
+
+    /* NAVIGATION */
+    .hero-nav {
+        position: relative;
+        z-index: 10;
+        padding: 20px 0;
+    }
+
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 40px;
+    }
+
+    .logo-img { height: 60px; }
+
+    .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: white;
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        transition: opacity 0.3s;
+    }
+
+    .btn-enquire {
+        background: white;
+        color: var(--red-light);
+        padding: 8px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-size: 0.8rem;
+    }
+
+    /* HERO CONTENT */
+    .hero-content {
+        position: relative;
+        z-index: 5;
+        max-width: 800px;
+        margin: auto auto auto 8%;
+        padding-top: 50px;
+    }
+
+    .hero-title {
+        font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 25px;
+        color: var(--white);
+    }
+
+    .highlight-gold {
+        color: var(--gold-light);
+    }
+
+    .hero-description {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        max-width: 550px;
+        margin-bottom: 40px;
+        opacity: 0.95;
+    }
+
+    /* BUTTONS */
+    .hero-cta-group {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn-outline {
+        border: 2px solid white;
+        padding: 8px 26px;
+        border-radius: 50px;
+        color: white;
+        text-decoration: none;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        transition: background 0.3s;
+    }
+
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    .btn-solid {
+        background: white;
+        color: var(--red-light);
+        padding: 8px 8px 8px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .arrow {
+        background: var(--red-light);
+        color: white;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        font-size: 1.6rem;
+    }
+
+    /* MOBILE ADAPTATION */
+    @media (max-width: 900px) {
+        .nav-links, .btn-enquire { display: none; }
+        .hero-content { margin: auto 5%; text-align: center; }
+        .hero-description { margin: 0 auto 30px; }
+        .hero-cta-group { flex-direction: column; align-items: center; }
+    }
+</style>    
+
+<div class="container">
+    <h1>The CGA <span>Difference</span></h1>
+    <p class="subtitle">Explore the CGA advantage below. <strong>Click a tab</strong> to reveal information, and click again to collapse.</p>
+
+    <div class="tabs-nav">
+        <button class="pill-btn active" onclick="toggleTab('tab-classes', this)">CGA Online Classes</button>
+        <button class="pill-btn" onclick="toggleTab('tab-timetable', this)">Class Timetable</button>
+        <button class="pill-btn" onclick="toggleTab('tab-comparison', this)">Comparison Table</button>
+        <button class="pill-btn" onclick="toggleTab('tab-dates', this)">CGA Term Dates</button>
+    </div>
+
+    <div id="tab-classes" class="tab-content active">
+        <div class="cga-table">
+            <div class="table-header header-lorem">Lorem Ipsum</div>
+            <div class="table-header header-cga">CGA Online</div>
+            <div class="table-header header-online">Online Classes</div>
+            <div class="table-header header-traditional">Traditional Schooling</div>
+
+            <div class="row-label">Personalized Learning</div>
+            <div class="table-cell highlight-col">Choose from 1:1 learning or small group classes with tailored education that meets your child's needs.</div>
+            <div class="table-cell">Choose from 1:1 learning or small group classes with tailored education that meets your child's needs.</div>
+            <div class="table-cell">Taught within a one-size-fits-all approach with a class size of 20-30 students.</div>
+
+            <div class="row-label">Focused Curriculum</div>
+            <div class="table-cell highlight-col">Curriculum focused on mastery in core subjects such as English, Maths and Science in preparation for global standards.</div>
+            <div class="table-cell">Our curriculum focuses on mastery in core subjects such as English, Maths and Science in preparation for global standards.</div>
+            <div class="table-cell">Curriculums are often constrained by local standards with limited pure subject study.</div>
+
+            <div class="row-label">Time and Cost</div>
+            <div class="table-cell highlight-col">Eliminate commuting time and hidden expenses like uniforms and textbooks. Enjoy online education from anywhere.</div>
+            <div class="table-cell">Eliminate commuting time and hidden expenses like uniforms and textbooks. Enjoy online education from anywhere.</div>
+            <div class="table-cell">Time wasted commuting to school with hidden costs: school uniform, bus fare, text books.</div>
+        </div>
+    </div>
+
+    <div id="tab-timetable" class="tab-content">
+        <div class="table-cell" style="text-align: center; padding: 50px;">
+            <h3>Class Timetable Module</h3>
+            <p>Placeholder for the scheduling grid...</p>
+        </div>
+    </div>
+
+    <div id="tab-comparison" class="tab-content">
+        <div class="table-cell" style="text-align: center; padding: 50px;">
+            <h3>Comparison Table Module</h3>
+            <p>Detailed breakdown comparison content goes here.</p>
+        </div>
+    </div>
+
+    <div id="tab-dates" class="tab-content">
+        <div class="table-cell" style="text-align: center; padding: 50px;">
+            <h3>CGA Term Dates 2024-2025</h3>
+            <p>Calendar views and term deadlines.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function toggleTab(tabId, btn) {
+        const selectedTab = document.getElementById(tabId);
+        const isActive = btn.classList.contains('active');
+
+        // 1. Hide all tabs and remove active class from all buttons
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+        document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+
+        // 2. If the clicked tab wasn't already active, show it
+        // This creates the "click again to hide" behavior
+        if (!isActive) {
+            selectedTab.classList.add('active');
+            btn.classList.add('active');
+        }
+    }
+</script>
+
+<section class="student-module">
+    <div class="container">
+        <h2 class="section-title">Hear From <span>Our Students</span></h2>
+        
+        <div class="student-grid">
+            <div class="student-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1602616106612-023d60042482?auto=format&fit=crop&w=400&h=400&q=80" alt="Paige"> </div>
+                <div class="card-content">
+                    <p class="meet-label">MEET</p>
+                    <h3 class="student-name">PAIGE</h3>
+                    <hr class="divider">
+                    <div class="card-footer">
+                        <span class="learn-more">LEARN MORE</span>
+                        <a href="#" class="arrow-btn">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1682867265716-107a1b7a981f?auto=format&fit=crop&w=400&h=400&q=80" alt="Cindy"> </div>
+                <div class="card-content">
+                    <p class="meet-label">MEET</p>
+                    <h3 class="student-name">CINDY</h3>
+                    <hr class="divider">
+                    <div class="card-footer">
+                        <span class="learn-more">LEARN MORE</span>
+                        <a href="#" class="arrow-btn">→</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="student-card">
+                <div class="image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1763682115500-1dc768e571a0?auto=format&fit=crop&w=400&h=400&q=80" alt="Jacob"> </div>
+                <div class="card-content">
+                    <p class="meet-label">MEET</p>
+                    <h3 class="student-name">JACOB</h3>
+                    <hr class="divider">
+                    <div class="card-footer">
+                        <span class="learn-more">LEARN MORE</span>
+                        <a href="#" class="arrow-btn">→</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Section Layout */
+    .student-module {
+        padding: 90px 20px 40px 20px;
+        background-color: var(--white);
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 60px;
+        color: var(--black);
+    }
+
+    .section-title span {
+        color: var(--red-light);
+        font-style: italic;
+    }
+
+    /* Grid System */
+    .student-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    /* Card Styling */
+    .student-card {
+        background-color: var(--beige);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        border-top-left-radius: 171px;
+        border-top-right-radius: 171px;
+    }
+
+    /* Hover Animation */
+    .student-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Image Shaping */
+    .image-wrapper {
+        width: 100%;
+        border-bottom-right-radius: 50% 50%;
+        border-top-left-radius: 50% 50%;
+        border-top-right-radius: 50% 50%;
+        overflow: hidden;
+    }
+
+    .image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+    }
+
+    /* Text Content */
+    .card-content {
+        padding: 30px;
+        text-align: left;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+    }
+
+    .meet-label {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+        margin: 0;
+        color: var(--black);
+    }
+
+    .student-name {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin: 5px 0 20px 0;
+        color: var(--black);
+    }
+
+    .divider {
+        border: none;
+        border-top: 1px solid var(--grey-dark);
+        margin-bottom: 25px;
+    }
+
+    /* Footer / CTA */
+    .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .learn-more {
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--black);
+    }
+
+    .arrow-btn {
+        background-color: var(--red-light);
+        color: var(--white);
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-family: sans-serif;
+        transition: background-color 0.2s;
+    }
+
+    .student-card:hover .arrow-btn {
+        background-color: var(--red-reg);
+    }
+
+    /* MOBILE OPTIMIZATION */
+    @media (max-width: 900px) {
+        .student-grid {
+            grid-template-columns: 1fr; /* Stacked cards for mobile */
+            max-width: 450px; /* Limits width so cards don't look huge on tablet */
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+        
+        .student-card {
+        border-top-left-radius: 224px;
+        border-top-right-radius: 224px;
+        }
+    }
+</style>
+
+<section class="stats-module">
+    <div class="container stats-grid">
+        <div class="stat-item">
+            <div class="stat-number" data-target="200">0</div><span class="stat-suffix">+</span>
+            <div class="stat-label">TEACHERS</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+            <div class="stat-number" data-target="2000">0</div>
+            <div class="stat-label">STUDENTS</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+            <div class="stat-number" data-target="70">0</div><span class="stat-suffix">+</span>
+            <div class="stat-label">COUNTRIES</div>
+        </div>
+
+        <div class="stat-divider"></div>
+
+        <div class="stat-item">
+            <div class="stat-number" data-target="40">0</div><span class="stat-suffix">%</span>
+            <div class="stat-label">ADVANCED LEVEL</div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .stats-module {
+        padding: 90px 0;
+        background-color: #FFFFFF;
+    }
+
+    .stats-grid {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .stat-item {
+        flex: 1;
+        text-align: center;
+        padding: 0 15px;
+        white-space: nowrap;
+    }
+
+    .stat-number, .stat-suffix {
+        display: inline-block;
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 800;
+        color: #F39200; /* Targeted Orange from draft */
+        line-height: 1;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 500;
+        color: var(--red-dark);
+        letter-spacing: 1px;
+        margin-top: 18px;
+    }
+
+    .stat-divider {
+        width: 1px;
+        height: 70px;
+        background-color: #E0E0E0;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+        .stats-grid {
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            flex: 0 0 50%;
+            margin-bottom: 30px;
+        }
+        .stat-divider {
+            display: none;
+        }
+    }
+</style>
+
+<script>
+    const observerOptions = {
+        threshold: 0.5 // Trigger when 50% of the module is visible
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText.replace(/,/g, '');
+                        // Adjust speed here: target / divisor
+                        const speed = target / 50; 
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + speed).toLocaleString();
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                });
+                observer.unobserve(entry.target); // Stop observing after animation runs once
+            }
+        });
+    }, observerOptions);
+
+    counterObserver.observe(document.querySelector('.stats-module'));
+</script>
+
+
+<section class="events-module">
+    <div class="events-header">
+        <h2 class="section-title">Upcoming <span>Webinars & Events</span></h2>
+        <a href="#" class="view-all-btn">VIEW ALL EVENTS</a>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel-track" id="eventTrack">
+            <div class="event-card">
+                <div class="card-image-container">
+                    <div class="urgency-ribbon">FINAL SLOTS</div>
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" alt="Adelaide">
+                    <div class="date-badge">
+                        <span class="month">DEC</span>
+                        <span class="day">27</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="event-name">Information Night: Adelaide</h3>
+                    <div class="event-meta"><span>🕒 6PM ACDT</span><span>📍 MINOR WORKS BUILDING</span></div>
+                    <p class="event-desc">Meet our Deputy Principal to get your online schooling questions answered and discover our curriculum.</p>
+                    <div class="card-footer"><span class="register-link">REGISTER TODAY</span><div class="arrow-circle">→</div></div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-container">
+                    <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=600&q=80" alt="Perth">
+                    <div class="date-badge">
+                        <span class="month">DEC</span>
+                        <span class="day">27</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="event-name">Information Night: Perth</h3>
+                    <div class="event-meta"><span>🕒 6PM AWST</span><span>📍 STATE LIBRARY OF WA</span></div>
+                    <p class="event-desc">Meet our Senior Admissions Officer to discover how our global community can help your child thrive.</p>
+                    <div class="card-footer"><span class="register-link">REGISTER TODAY</span><div class="arrow-circle">→</div></div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-container">
+                    <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=600&q=80" alt="Sydney">
+                    <div class="date-badge">
+                        <span class="month">JAN</span>
+                        <span class="day">12</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="event-name">Curriculum Deep Dive: Sydney</h3>
+                    <div class="event-meta"><span>🕒 5PM AEDT</span><span>📍 CUSTOMS HOUSE</span></div>
+                    <p class="event-desc">Join our academic team for a detailed look at the International GCSE and A-Level pathways.</p>
+                    <div class="card-footer"><span class="register-link">REGISTER TODAY</span><div class="arrow-circle">→</div></div>
+                </div>
+            </div>
+
+            <div class="event-card">
+                <div class="card-image-container">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80" alt="Online">
+                    <div class="date-badge">
+                        <span class="month">FEB</span>
+                        <span class="day">05</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3 class="event-name">Global Virtual Open Day</h3>
+                    <div class="event-meta"><span>🕒 8PM NZDT</span><span>📍 ZOOM ONLINE</span></div>
+                    <p class="event-desc">Experience a live demo of our classroom technology and meet teachers from around the world.</p>
+                    <div class="card-footer"><span class="register-link">REGISTER TODAY</span><div class="arrow-circle">→</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="fade-mask"></div>
+    </div>
+
+    <div class="slider-controls">
+        <div class="slider-base" id="sliderBase">
+            <div class="slider-thumb" id="sliderThumb"></div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .events-module { padding: 80px 0; background: var(--white); overflow: hidden; }
+
+    .events-header {
+        display: flex; justify-content: space-between; align-items: center;
+        max-width: 1100px; margin: 0 auto 50px; padding: 0 20px;
+    }
+
+    .view-all-btn {
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        background: linear-gradient(135deg, #BA1F22, #5B000B);
+        color: var(--white);
+        padding: 12px 24px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.7rem;
+    }
+
+    .view-all-btn:hover {
+        background: #5B000B;
+        transition: opacity 0.3s;
+    }
+
+    .carousel-container { position: relative; padding-left: max(20px, calc((100vw - 1100px) / 2)); }
+
+    .carousel-track {
+        display: flex; gap: 30px; overflow-x: auto;
+        padding-bottom: 30px; scroll-behavior: smooth;
+        scrollbar-width: none; -ms-overflow-style: none;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+
+    .event-card {
+        min-width: 380px; background: var(--beige); border-radius: 18px;
+        overflow: hidden; display: flex; flex-direction: column;
+        transition: transform 0.3s ease;
+    }
+
+    .card-image-container { position: relative; height: 220px; overflow: hidden; }
+    .card-image-container img { width: 100%; height: 100%; object-fit: cover; }
+
+    .urgency-ribbon {
+        position: absolute; top: 20px; right: -35px; background: var(--gold-mid);
+        color: white; padding: 6px 40px; font-size: 0.7rem; font-weight: 800;
+        transform: rotate(45deg); z-index: 2;
+    }
+
+    .date-badge {
+        position: absolute;
+        bottom: 15px;
+        left: 15px;
+        background: var(--white);
+        padding: 8px 12px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }    
+
+    .date-badge .month { display: block; font-size: 0.7rem; font-weight: 700; font-family: 'Styrene', 'Montserrat', sans-serif; color: #555; }
+    .date-badge .day { display: block; font-size: 1.4rem; font-weight: 800; font-family: 'Styrene', 'Montserrat', sans-serif; color: var(--red-light); }
+
+    .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+    
+    .event-name { font-size: 1.2rem; font-weight: 700; margin: 0 0 10px 0; }
+    
+    .event-meta { font-size: 0.75rem; font-weight: 700; color: #777; margin-bottom: 15px; display: flex; gap: 15px; }
+
+    .event-desc { font-size: 0.9rem; color: #444; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+
+    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    
+    .register-link { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 800; color: var(--red-light); letter-spacing: 0.5px; }
+
+    .arrow-circle { width: 40px; height: 40px; background: var(--red-light); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+    .fade-mask {
+        position: absolute; top: 0; right: 0; height: 100%; width: 200px;
+        background: linear-gradient(to right, transparent, rgba(255,255,255,0.95));
+        pointer-events: none;
+    }
+
+    /* Thicker, Functional Slider */
+    .slider-controls { max-width: 1100px; margin: 40px auto 0; padding: 0 20px; }
+    .slider-base {
+        height: 6px; background: var(--grey-light); border-radius: 10px;
+        position: relative; cursor: pointer;
+    }
+    .slider-thumb {
+        position: absolute; top: 0; left: 0; height: 100%;
+        background: var(--red-mid); border-radius: 10px;
+        transition: width 0.1s ease, left 0.1s ease;
+    }
+
+    @media (max-width: 900px) {
+        .event-card { min-width: 300px; }
+        .carousel-container { padding-left: 20px; }
+    }
+</style>
+
+<script>
+    const track = document.getElementById('eventTrack');
+    const thumb = document.getElementById('sliderThumb');
+
+    track.addEventListener('scroll', () => {
+        const scrollPercentage = track.scrollLeft / (track.scrollWidth - track.clientWidth);
+        
+        // Calculate thumb width based on visible portion
+        const visibleRatio = track.clientWidth / track.scrollWidth;
+        const thumbWidth = visibleRatio * 100;
+        
+        thumb.style.width = thumbWidth + '%';
+        thumb.style.left = (scrollPercentage * (100 - thumbWidth)) + '%';
+    });
+
+    // Initialize thumb position
+    window.addEventListener('load', () => {
+        const visibleRatio = track.clientWidth / track.scrollWidth;
+        thumb.style.width = (visibleRatio * 100) + '%';
+    });
+</script>
+
+<section class="ebook-module">
+    <div class="container ebook-grid">
+        
+        <div class="ebook-visual-stack">
+            <div class="gold-accent-box"></div>
+            
+            <div class="books-wrapper">
+                <img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?auto=format&fit=crop&w=800&q=80" alt="CGA eBook Back" class="book-layer back-book">
+                <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&w=800&q=80" alt="CGA eBook Front" class="book-layer front-book">
+            </div>
+        </div>
+
+        <div class="ebook-text-area">
+            <h2 class="ebook-headline">What you'll get <span class="highlight-italic">in this ebook</span></h2>
+            
+            <div class="feature-rows">
+                <div class="feature-row">
+                    <div class="check-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#34A853" stroke-width="2.5"/>
+                            <path d="M8 12L11 15L16 9" stroke="#34A853" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>THE CHANGING LANDSCAPE</h3>
+                        <p>Why the "accidental homeschooler" is the fastest-growing demographic in education.</p>
+                    </div>
+                </div>
+
+                <div class="feature-row">
+                    <div class="check-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#34A853" stroke-width="2.5"/>
+                            <path d="M8 12L11 15L16 9" stroke="#34A853" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>SOCIAL SAFETY</h3>
+                        <p>Debunking the socialisation myth and explaining why removing toxic school dynamics often leads to better social outcomes.</p>
+                    </div>
+                </div>
+
+                <div class="feature-row">
+                    <div class="check-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#34A853" stroke-width="2.5"/>
+                            <path d="M8 12L11 15L16 9" stroke="#34A853" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="feature-info">
+                        <h3>THE CIRCUIT BREAKER</h3>
+                        <p>What a short-term Crimson Global Academy (CGA) plan looks like and the paths to either returning to school or completing school with CGA.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .ebook-module {
+        padding: 100px 0;
+        background-color: var(--white);
+    }
+
+    /* Desktop: Grid with specific alignment */
+    .ebook-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 80px;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    /* Visual Stack: Handling the overlap */
+    .ebook-visual-stack {
+        position: relative;
+        height: 450px;
+        display: flex;
+        align-items: center;
+    }
+
+    .gold-accent-box {
+        position: absolute;
+        width: 320px;
+        height: 280px;
+        background-color: var(--gold-reg);
+        border-radius: 25px;
+        left: 0;
+        z-index: 1;
+    }
+
+    .books-wrapper {
+        position: relative;
+        z-index: 2;
+        padding-left: 20px;
+    }
+
+    .book-layer {
+        width: 280px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 10px 10px 30px rgba(0,0,0,0.15);
+        position: absolute;
+        transition: transform 0.3s ease;
+    }
+
+    .back-book {
+        transform: rotate(-8deg) translate(-14px, -50px);
+        z-index: 2;
+    }
+
+    .front-book {
+        transform: rotate(5deg) translate(40px, 20px);
+        z-index: 3;
+    }
+
+    /* Text Content: Left Aligned */
+    .ebook-text-area {
+        text-align: left;
+    }
+
+    .ebook-headline {
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-size: 2.3rem;
+        font-weight: 600;
+        color: var(--black);
+        margin-bottom: 50px;
+        line-height: 1.1;
+    }
+
+    .highlight-italic {
+        color: var(--red-light);
+        font-style: italic;
+    }
+
+    .feature-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .feature-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .check-icon {
+        flex-shrink: 0;
+    }
+
+    .feature-info h3 {
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        margin: 0 0 8px 0;
+        color: var(--black);
+        letter-spacing: 0.5px;
+    }
+
+    .feature-info p {
+        font-size: 1.05rem;
+        color: #444;
+        margin: 0;
+        line-height: 1.4;
+    }
+
+    /* Responsive: Mobile Stack */
+    @media (max-width: 900px) {
+        .ebook-grid {
+            grid-template-columns: 1fr;
+            gap: 60px;
+            padding: 0 20px;
+        }
+
+        .ebook-visual-stack {
+            height: 380px;
+            justify-content: center;
+        }
+
+        .gold-accent-box {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .books-wrapper {
+            padding-left: 0;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .book-layer {
+            width: 220px;
+            position: relative;
+        }
+
+        .back-book {
+            position: absolute;
+            left: 20%;
+        }
+        
+        .front-book {
+            position: relative;
+            left: 10%;
+        }
+
+        .ebook-headline {
+            font-size: 2.2rem;
+        }
+    }
+</style>
+
+<section class="quote-module">
+    <div class="container quote-container">
+        <blockquote class="testimonial-blockquote">
+            "My <span class="highlight">Chemistry</span> and <span class="highlight">Biology</span> teachers are great educators that not only helped me achieve my A* but also <span class="highlight-italic">encouraged me to continue pursuing my dream.</span>"
+        </blockquote>
+        <cite class="quote-author">— ROSIE, CGA Student</cite>
+    </div>
+</section>
+
+<style>
+    .quote-module {
+        padding: 120px 20px;
+        background-color: var(--white);
+        text-align: center;
+    }
+
+    .quote-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .testimonial-blockquote {
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        font-weight: 600;
+        line-height: 1.35;
+        color: var(--black);
+        margin: 0 0 30px 0;
+        position: relative;
+        font-family: 'Source Sans 3', sans-serif;
+    }
+
+    /* Color accents from your draft */
+    .testimonial-blockquote .highlight {
+        color: var(--red-light);
+    }
+
+    .testimonial-blockquote .highlight-italic {
+        color: var(--red-light);
+        font-style: italic;
+    }
+
+    .quote-author {
+        display: block;
+        font-size: 0.9rem;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--red-light);
+        letter-spacing: 1px;
+        font-style: normal;
+    }
+
+    /* Mobile Refinement */
+    @media (max-width: 768px) {
+        .quote-module {
+            padding: 60px 20px;
+        }
+        
+        .testimonial-blockquote {
+            font-size: 1.7rem;
+        }
+
+        .quote-author {
+            font-size: 0.8rem;
+    }
+        .quote-author-info span.author-name {
+        font-size: 0.8rem;
+    }
+    }
+</style>
+
+<section class="student-quote-module">
+    <div class="container quote-grid">
+        
+        <div class="quote-visual">
+            <div class="gradient-pill">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/048/686/471/small_2x/young-girl-in-pink-shirt-smiling-with-arms-crossed-against-transparent-background-png.png" 
+                     alt="Rosie - CGA Student" class="student-pill-img">
+            </div>
+        </div>
+
+        <div class="quote-line-divider"></div>
+
+        <div class="quote-content">
+            <blockquote class="main-quote-text">
+                "My <span class="accent">Chemistry</span> and <span class="accent">Biology</span> teachers are great educators that not only helped me achieve my A* but also <span class="accent-italic">encouraged me to continue pursuing my dream.</span>"
+            </blockquote>
+            <div class="quote-author-info">
+                <span class="author-name">— ROSIE, CGA Student</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .student-quote-module {
+        padding: 100px 0;
+        background-color: var(--white);
+    }
+
+    .quote-grid {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 40px;
+        gap: 50px;
+    }
+
+    /* 1. The Gradient Pill Container */
+    .quote-visual {
+        flex-shrink: 0;
+    }
+
+    .gradient-pill {
+        width: 160px;
+        height: 260px;
+        background: linear-gradient(180deg, var(--red-reg) 0%, var(--red-dark) 100%);
+        border-radius: 150px; /* Pill shape */
+        position: relative;
+        overflow: hidden; /* Clips the bottom of the image if needed */
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+
+    .student-pill-img {
+        width: 150%;
+        height: auto;
+        object-fit: contain;
+        position: relative;
+        bottom: -10px;
+    }
+
+    /* 2. The Structural Vertical Line */
+    .quote-line-divider {
+        width: 8px;
+        height: 206px;
+        background-color: var(--red-light);
+        flex-shrink: 0;
+    }
+
+    /* 3. The Text Content */
+    .quote-content {
+        text-align: left;
+        max-width: 650px;
+    }
+
+    .main-quote-text {
+        font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+        font-weight: 600;
+        line-height: 1.2;
+        color: var(--black);
+        margin: 0 0 25px 0;
+    }
+
+    .main-quote-text .accent {
+        color: var(--red-light);
+    }
+
+    .main-quote-text .accent-italic {
+        color: var(--red-light);
+        font-style: italic;
+    }
+
+    .quote-author-info {
+        font-family: 'Styrene','Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--red-light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .quote-author-info .author-role {
+        font-weight: 400;
+        text-transform: none;
+    }
+
+    /* MOBILE ADAPTATION */
+    @media (max-width: 900px) {
+        .quote-grid {
+            flex-direction: column;
+            text-align: center;
+            gap: 34px;
+        }
+
+        .quote-line-divider {
+            width: 80px;
+            height: 2px; /* Flips to horizontal on mobile */
+        }
+
+        .quote-content {
+            text-align: center;
+        }
+
+        .gradient-pill {
+            width: 140px;
+            height: 140px;
+        }
+       
+        .student-pill-img {
+        width: 130%;
+        height: auto;
+        object-fit: contain;
+        position: relative;
+        bottom: -55px;
+}
+    }
+</style>
+
+<section class="community-hub-final">
+    <div class="hub-container">
+        
+            <h2 class="section-title">Explore the <span>Community</span></h2>
+            <p class="subtitle">Our diverse community includes academically ambitious learners, student-athletes and performers, globally mobile families, <br>and students looking to build confidence in their education.</p>
+
+        <div class="precision-bento-grid">
+            
+            <div class="hub-item card-video-main">
+                <video autoplay muted loop playsinline class="abs-bg">
+                    <source src="https://cdn.pixabay.com/video/2024/04/03/206779.mp4" type="video/mp4">
+                </video>
+                <div class="abs-overlay"></div>
+                <div class="card-content-wrap">
+                    <span class="hub-tag">OUR STUDENTS</span>
+                    <blockquote class="video-quote">“But I must explain to you how all this mistaken idea of...”</blockquote>
+                    <p class="bottom-label">University Admissions Results 2024</p>
+                </div>
+                <div class="play-icon-wrap">
+                    <svg viewBox="0 0 60 60"><circle cx="30" cy="30" r="30" fill="rgba(0,0,0,0.4)"/><path d="M40 30L25 38.66V21.34L40 30Z" fill="white"/></svg>
+                </div>
+            </div>
+
+            <div class="hub-item card-blog-match">
+                <img src="https://images.unsplash.com/photo-1653294274858-f7ed1c1794ab?auto=format&fit=crop&w=600" alt="Blog" class="abs-bg">
+                <div class="card-content-wrap">
+                    <span class="hub-tag">OUR BLOG</span>
+                    <h3 class="blog-headline">University Admissions Results 2024</h3>
+                </div>
+            </div>
+
+            <div class="hub-item card-stats-match">
+                <div class="card-content-wrap">
+                    <span class="hub-tag">CGA STATS</span>
+                    <div class="stat-hero">
+                        <span class="big-num">40</span><span class="big-unit">%</span>
+                    </div>
+                    <p class="stat-description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis.</p>
+                </div>
+            </div>
+
+            <div class="hub-item card-testimonial-main">
+             <div class="card-content-wrap">
+                <div class="testim-top-row">
+                    <span class="hub-tag-red">OUR STUDENTS</span>
+                    <div class="vector-arrows">
+                        <span class="arrow-v">❮</span>
+                        <span class="arrow-v">❯</span>
+                    </div>
+                </div>
+                <blockquote class="editorial-quote">
+                    “These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled.”
+                </blockquote>
+                <div class="testim-bottom-row">
+                    <span class="footer-link-red">University Admissions Results 2024</span>
+                    <div class="circle-avatar">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150" alt="Student">
+                    </div>
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .community-hub-final { padding: 80px 0; background: #fff; }
+    .hub-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    
+    .hub-header { text-align: center; margin-bottom: 50px; }
+    .hub-header h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 15px; }
+    .hub-header .highlight { color: #98151C; }
+
+    /* PRECISION GRID: Blog and Stats now occupy exactly 1/4 of the width each */
+    .precision-bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: 400px 400px;
+        gap: 24px;
+    }
+
+    .hub-item { position: relative; border-radius: 28px; overflow: hidden; display: flex; flex-direction: column; }
+    .card-content-wrap { position: relative; z-index: 5; height: 100%; display: flex; flex-direction: column; padding: 40px; }
+    .abs-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+    .abs-overlay { position: absolute; inset: 0; background: linear-gradient(0deg, rgba(0,0,0,0.6) 40%, transparent 70%); z-index: 2; }
+    .hub-tag { font-size: 0.95rem; font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 500; letter-spacing: 1.5px; color: #fff; }
+
+    /* STAGGERED POSITIONING */
+    .card-video-main { grid-column: 1 / 9; grid-row: 1; } /* Large landscape */
+    .card-blog-match { grid-column: 9 / 13; grid-row: 1; } /* Small square */
+    .card-stats-match { grid-column: 1 / 5; grid-row: 2; background: linear-gradient(135deg, var(--blue-light), var(--blue-dark)); color: #fff; } /* Tall portrait */
+    .card-testimonial-main { grid-column: 5 / 13; grid-row: 2; background: #F5F1EF; padding: 0; } /* Wide landscape */
+
+    /* VIDEO CARD CONTENT */
+    .video-quote { font-size: 2.2rem; font-weight: 600; font-style: italic; color: #fff; margin-top: auto; margin-left: 0; margin-bottom: 15px;max-width: 70%; line-height: 1.2; }
+    .bottom-label { font-size: 0.9rem; color: #fff; font-weight: 600; margin-top: 10px; }
+    .play-icon-wrap { position: absolute; bottom: 40px; right: 40px; z-index: 10; width: 55px; cursor: pointer; }
+
+    /* BLOG CARD CONTENT */
+    .card-blog-match .card-content-wrap { justify-content: flex-start; }
+    .blog-headline { color: #fff; font-size: 1.4rem; font-weight: 800; line-height: 1.2; margin-top: 82%; }
+
+    /* STATS CARD CONTENT */
+    .stat-hero { margin: 90px 0 10px; }
+    .big-num { font-size: 6.6rem; font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 800; color: var(--gold-light); line-height: 1; }
+    .big-unit { font-size: 3.8rem; font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 800; color: var(--gold-light); }
+    .stat-description { font-size: 1.2rem; line-height: 1.5; }
+
+    /* TESTIMONIAL CARD CONTENT */
+    .testim-top-row { display: flex; justify-content: space-between; align-items: center; }
+    .hub-tag-red { font-size: 0.95rem; font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 500; color: #98151C; letter-spacing: 1.5px; }
+    .vector-arrows { display: flex; gap: 12px; color: #98151C; font-weight: 800; cursor: pointer; }
+    .editorial-quote { font-size: 2.2rem; font-weight: 600; font-style: italic; color: #98151C; max-width: 90%; margin: 35px 0; line-height: 1.3; }
+    .testim-bottom-row { display: flex; justify-content: space-between; align-items: flex-end; margin-top: auto; }
+    .footer-link-red { font-size: 0.9rem; font-weight: 600; color: var(--red-light); }
+    .circle-avatar { width: 90px; height: 90px; border-radius: 50%; overflow: hidden; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+    .circle-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* MOBILE: STACKED */
+    @media (max-width: 1024px) {
+        .precision-bento-grid { display: flex; flex-direction: column; gap: 20px; }
+        .hub-item { height: auto; min-height: 380px; }
+    }
+</style>
+
+<section class="faq-module">
+    <div class="container faq-grid">
+        
+        <div class="faq-header">
+            <h2 class="faq-title">Frequently Asked <span>Questions</span></h2>
+        </div>
+
+        <div class="faq-list">
+            
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is CGA like homeschooling?
+                    <span class="faq-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#98151C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>CGA provides a structured online environment with live classes, unlike traditional homeschooling which is often self-led. Our students follow a rigorous international curriculum with expert teachers.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Do you provide students with a Transfer Certificate?
+                    <span class="faq-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#98151C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we provide all necessary documentation including transfer certificates and academic transcripts to ensure a smooth transition between schools.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    Is there an online school for primary aged children?
+                    <span class="faq-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#98151C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, CGA offers programs tailored for younger learners, ensuring they develop foundational skills in a supportive, interactive online classroom.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    What is the class size?
+                    <span class="faq-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#98151C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer">
+                    <p>We maintain small class sizes, typically between 10-15 students, to ensure every child receives personalized attention from their teacher.</p>
+                </div>
+            </div>
+
+            <div class="faq-item active">
+                <button class="faq-question" onclick="toggleFaq(this)">
+                    How do I apply?
+                    <span class="faq-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="#98151C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+                </button>
+                <div class="faq-answer" style="display: block;">
+                    <p>Enrolling at CGA is easy. We offer both full time and part time options across International GCSE, A Levels, AP curriculum, and the US Diploma.</p>
+                    <p><a href="#" style="color: #98151C; font-weight: 700; text-decoration: none;">Speak to an advisor to get started.</a></p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .faq-module {
+        padding: 100px 0;
+        background-color: var(--white);
+    }
+
+    .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr; /* Matches the 40/60 split in draft */
+        gap: 60px;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        align-items: start;
+    }
+
+    .faq-title {
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-size: 2.3rem;
+        font-weight: 800;
+        margin-top: 0;
+        color: var(--black);
+        line-height: 1.25;
+        text-align: left;
+    }
+
+    .faq-title span {
+        color: var(--red-light);
+        display: block;
+        font-style: italic;
+    }
+
+    .faq-list {
+        border-top: 1px solid var(--grey-dark);
+    }
+
+    .faq-item {
+        border-bottom: 1px solid var(--grey-dark);
+    }
+
+    .faq-question {
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        width: 100%;
+        padding: 30px 0;
+        background: none;
+        border: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--black);
+        cursor: pointer;
+        transition: color 0.3s;
+    }
+
+    .faq-question:hover {
+        color: var(--red-mid);
+    }
+
+    .faq-icon {
+        transition: transform 0.4s ease;
+    }
+
+    /* Flip arrow when active */
+    .faq-item.active .faq-icon {
+        transform: rotate(180deg);
+    }
+
+    .faq-answer {
+        display: none;
+        padding-bottom: 30px;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #444;
+        max-width: 90%;
+        text-align: left;
+    }
+
+    /* MOBILE OPTIMIZATION */
+    @media (max-width: 900px) {
+        .faq-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .faq-title {
+            font-size: 2.2rem;
+        }
+
+        .faq-question {
+            font-size: 1.05rem;
+            padding: 20px 0;
+        }
+    }
+</style>
+
+<script>
+    function toggleFaq(btn) {
+        const item = btn.parentElement;
+        const answer = btn.nextElementSibling;
+        const isActive = item.classList.contains('active');
+
+        // Optional: Close other items when one opens
+        // document.querySelectorAll('.faq-item').forEach(el => {
+        //    el.classList.remove('active');
+        //    el.querySelector('.faq-answer').style.display = 'none';
+        // });
+
+        if (isActive) {
+            item.classList.remove('active');
+            answer.style.display = 'none';
+        } else {
+            item.classList.add('active');
+            answer.style.display = 'block';
+        }
+    }
+</script>
+
+<div class="wechat-sticky-container">
+    <div class="wechat-qr-popup" id="wechatPopup">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=CGA-WeChat" alt="WeChat QR Code">
+        <p>扫描下方二维码</p> 
+        <div class="popup-arrow"></div>
+    </div>
+    <button class="wechat-trigger" onclick="toggleWeChat()">
+        <svg viewBox="5 7 12 12" xmlns="http://www.w3.org/2000/svg">
+            <path d="M8.5 14c-.3 0-.5-.2-.5-.5s.2-.5.5-.5.5.2.5.5-.2.5-.5.5zm3 0c-.3 0-.5-.2-.5-.5s.2-.5.5-.5.5.2.5.5-.2.5-.5.5zm4.8-2.6c.1-1.7-1.4-3.1-3.3-3.1-2 0-3.6 1.6-3.6 3.5 0 1.1.5 2.1 1.4 2.8l-.3 1 1.2-.6c.4.1.8.2 1.3.2 2 0 3.3-1.6 3.3-3.8zm-6.2-1.9c-2.3 0-4.1 1.7-4.1 3.9 0 1.2.6 2.3 1.5 3l-.4 1.2 1.5-.7c.5.2 1 .3 1.6.3.2 0 .5 0 .7-.1-.1-.3-.1-.7-.1-1 0-2.4 1.8-4.4 4.1-4.4.4 0 .8.1 1.1.2-.4-1.4-1.8-2.4-3.9-2.4z" fill="white"/>
+        </svg>
+    </button>
+</div>
+
+<footer class="main-footer">
+    <div class="footer-inner-content">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3 class="footer-logo">CGA</h3>
+                <p>Empowering students through world-class online education, regardless of their location.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Curriculum</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Crimson Global Academy. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    /* CRITICAL: This removes the white "gaps" around the edges of the page */
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* FOOTER STYLES */
+    .main-footer {
+        width: 100vw; /* Force it to be exactly the viewport width */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        /* Red gradient from your brand palette */
+        background: linear-gradient(135deg, #BA1F22 0%, #5B000B 100%);
+        color: white;
+        padding: 80px 0 40px 0;
+    }
+
+    /* This keeps the text centered and constrained while the background bleeds out */
+    .footer-inner-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
+
+    /* ... Remaining WeChat & Footer Typography styles same as before ... */
+    .wechat-sticky-container { position: fixed; bottom: 30px; right: 30px; z-index: 9999; display: flex; flex-direction: column; align-items: flex-end; }
+    .wechat-trigger { width: 60px; height: 60px; background-color: #07C160; border: none; border-radius: 50%; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; }
+    .wechat-trigger svg { width: 50px; height: 50px; }
+    .wechat-qr-popup { display: none; background: #F5F5F5; padding: 20px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 20px; text-align: center; width: 160px; position: relative; }
+    .wechat-qr-popup img { width: 140px; height: 140px; }
+    .wechat-qr-popup p { margin-top: 10px; font-size: 0.8rem; color: #333; font-weight: 700; }
+    .popup-arrow { position: absolute; bottom: -10px; right: 25px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #F5F5F5; }
+    .footer-logo { font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+    .main-footer h4 { font-size: 1.1rem; margin-bottom: 25px; }
+    .main-footer ul { list-style: none; padding: 0; }
+    .main-footer ul li { margin-bottom: 12px; }
+    .main-footer ul li a { color: white; text-decoration: none; opacity: 0.7; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; font-size: 0.85rem; opacity: 0.6; }
+
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    }
+</style>
+
+<script>
+    function toggleWeChat() {
+        const popup = document.getElementById('wechatPopup');
+        popup.style.display = (popup.style.display === 'block') ? 'none' : 'block';
+    }
+</script>
+
+</body>
+</html>
