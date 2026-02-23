@@ -1253,6 +1253,184 @@
     }
 </style>
 
+<section class="popout-feature-section">
+    <div class="popout-container">
+        
+        <div class="popout-content">
+            <span class="popout-label">LOREM IPSUM</span>
+            <h2 class="popout-heading">Lorem ipsum <span class="highlight-gold">dolor sit</span> amet</h2>
+            <p class="popout-text">
+                At CGA, we offer a range of opportunities for parents and students to connect with each other and our team. A typical year at CGA provides a full roster of interactive and engaging moments for our students to feel part of a thriving community.
+            </p>
+            <div class="popout-buttons">
+                <a href="#" class="btn-outline-gold">LEARN MORE</a>
+                <a href="#" class="btn-solid-gold">LEARN MORE</a>
+            </div>
+        </div>
+
+        <div class="popout-image-wrapper">
+            <img src="https://pngimg.com/uploads/laptop/laptop_PNG101774.png" alt="Floating Laptop Platform" class="floating-laptop">
+        </div>
+
+    </div>
+</section>
+<style>
+    .popout-feature-section {
+        padding: 120px 20px; /* Extra padding to allow room for the pop-out image */
+        background: #fff;
+        font-family: 'Source Sans 3', sans-serif;
+        overflow: hidden; /* Prevents horizontal scrolling if the image pops out too far right */
+    }
+
+    .popout-container {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, #1A3691 0%, #0d1b4a 100%); /* CGA Navy Blue */
+        border-radius: 30px;
+        padding: 70px 60px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 20px 40px rgba(26, 54, 145, 0.15);
+    }
+
+    /* Content Styling */
+    .popout-content {
+        width: 55%;
+        position: relative;
+        z-index: 5;
+        color: white;
+    }
+
+    .popout-label {
+        display: block;
+        color: #F39200;
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .popout-heading {
+        font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .highlight-gold {
+        color: #F39200;
+    }
+
+    .popout-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 40px;
+        max-width: 90%;
+    }
+
+    /* Buttons */
+    .popout-buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn-outline-gold {
+        border: 2px solid #F39200;
+        color: #F39200;
+        padding: 12px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-gold:hover {
+        background: rgba(243, 146, 0, 0.1);
+    }
+
+    .btn-solid-gold {
+        background: #F39200;
+        color: #fff;
+        padding: 14px 35px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 800;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 20px rgba(243, 146, 0, 0.3);
+    }
+
+    .btn-solid-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(243, 146, 0, 0.4);
+    }
+
+    /* Floating Image Mechanics */
+    .popout-image-wrapper {
+        position: absolute;
+        right: -8%; /* Pushes it outside the right edge */
+        top: -15%; /* Pushes it above the top edge */
+        width: 55%;
+        z-index: 10;
+        pointer-events: none; /* Ensures the image doesn't block clicking nearby things */
+    }
+
+    .floating-laptop {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 30px 40px rgba(0,0,0,0.4));
+        transform: rotate(-2deg); /* Slight tilt for dynamic feel */
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Gentle floating animation */
+    @keyframes float {
+        0% { transform: translateY(0px) rotate(-2deg); }
+        50% { transform: translateY(-15px) rotate(-1deg); }
+        100% { transform: translateY(0px) rotate(-2deg); }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 960px) {
+        .popout-feature-section {
+            padding: 80px 20px;
+        }
+        
+        .popout-container {
+            flex-direction: column-reverse; /* Puts image on top of text on mobile */
+            padding: 40px 30px 50px;
+            margin-top: 60px; /* Room for the image popping out the top */
+        }
+
+        .popout-content {
+            width: 100%;
+            text-align: center;
+        }
+
+        .popout-text {
+            max-width: 100%;
+        }
+
+        .popout-buttons {
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .popout-image-wrapper {
+            position: relative;
+            right: auto;
+            top: auto;
+            margin-top: -120px; /* Pulls image up outside the box */
+            margin-bottom: 30px;
+            width: 85%;
+        }
+    }
+</style>
+
 <section class="quote-module">
     <div class="container quote-container">
         <blockquote class="testimonial-blockquote">
