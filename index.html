@@ -1286,7 +1286,7 @@
         position: relative;
         max-width: 1200px;
         margin: 0 auto;
-        background: linear-gradient(135deg, #1A3691 0%, #0d1b4a 100%); /* CGA Navy Blue */
+        background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
         border-radius: 30px;
         padding: 70px 60px;
         display: flex;
@@ -1303,8 +1303,9 @@
     }
 
     .popout-label {
+        font-family: 'Styrene', 'Montserrat', sans-serif;
         display: block;
-        color: #F39200;
+        color: var(--gold-light);
         font-size: 0.85rem;
         font-weight: 800;
         letter-spacing: 2px;
@@ -1314,13 +1315,14 @@
 
     .popout-heading {
         font-size: clamp(2.5rem, 4vw, 3.5rem);
+        font-family: 'Styrene', 'Montserrat', sans-serif;
         font-weight: 800;
         line-height: 1.1;
         margin-bottom: 25px;
     }
 
     .highlight-gold {
-        color: #F39200;
+        color: var(--gold-light);
     }
 
     .popout-text {
@@ -1338,11 +1340,12 @@
     }
 
     .btn-outline-gold {
-        border: 2px solid #F39200;
-        color: #F39200;
+        border: 2px solid var(--gold-light);
+        color: var(--gold-light);
         padding: 12px 35px;
         border-radius: 50px;
         text-decoration: none;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
         font-weight: 800;
         font-size: 0.9rem;
         transition: all 0.3s ease;
@@ -1353,11 +1356,12 @@
     }
 
     .btn-solid-gold {
-        background: #F39200;
+        background: var(--gold-light);
         color: #fff;
         padding: 14px 35px;
         border-radius: 50px;
         text-decoration: none;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
         font-weight: 800;
         font-size: 0.9rem;
         transition: all 0.3s ease;
@@ -1372,8 +1376,8 @@
     /* Floating Image Mechanics */
     .popout-image-wrapper {
         position: absolute;
-        right: -8%; /* Pushes it outside the right edge */
-        top: -15%; /* Pushes it above the top edge */
+        right: -7%; /* Pushes it outside the right edge */
+        top: -10%; /* Pushes it above the top edge */
         width: 55%;
         z-index: 10;
         pointer-events: none; /* Ensures the image doesn't block clicking nearby things */
