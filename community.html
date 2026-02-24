@@ -301,6 +301,40 @@
     </div>
 </section>
 
+<footer class="main-footer">
+    <div class="footer-inner-content">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3 class="footer-logo">CGA</h3>
+                <p>Empowering students through world-class online education, regardless of their location.</p>
+            </div>
+            
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Curriculum</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-legal">
+                <h4>Support</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Crimson Global Academy. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
 <style>
 
             :root {
@@ -615,8 +649,8 @@
 
     /* Left Column */
     .resources-intro {
-        position: sticky;
-        top: 100px; /* Keeps the left side locked in place while the user scrolls the right side */
+       /* position: sticky;
+        top: 100px;  Keeps the left side locked in place while the user scrolls the right side */
     }
 
     .resources-title {
@@ -709,8 +743,44 @@
 
     .btn-outline-darkred:hover {
         background: var(--red-dark);
+        border: 2px solid var(--red-dark);
         color: #fff;
     }
+
+/* FOOTER STYLES */
+    .main-footer {
+        width: 100vw; /* Force it to be exactly the viewport width */
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        /* Red gradient from your brand palette */
+        background: linear-gradient(135deg, #BA1F22 0%, #5B000B 100%);
+        color: white;
+        padding: 80px 0 40px 0;
+    }
+
+    /* This keeps the text centered and constrained while the background bleeds out */
+    .footer-inner-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+        font-family: 'Source Sans 3', sans-serif;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }
+
+    .footer-logo { font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+    .main-footer h4 { font-size: 1.1rem; margin-bottom: 25px; }
+    .main-footer ul { list-style: none; padding: 0; }
+    .main-footer ul li { margin-bottom: 12px; }
+    .main-footer ul li a { color: white; text-decoration: none; opacity: 0.7; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; font-size: 0.85rem; opacity: 0.6; }
 
     /* Mobile Responsiveness */
     @media (max-width: 960px) {
@@ -757,4 +827,9 @@
         .card-content-side { width: 100%; }
         .section-header { flex-direction: column; align-items: flex-start; gap: 15px; }
     }
+
+    @media (max-width: 768px) {
+        .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    }
+    
 </style>
