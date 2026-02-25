@@ -266,7 +266,7 @@
             
             <article class="resource-card">
                 <div class="resource-img-box">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="Unlock Your Limitless Potential Book" class="resource-img">
+                    <img src="https://img2.storyblok.com/f/90801/2394x2136/47722a0bab/whycga-mockup.png?auto=format&fit=crop&w=400&q=80" alt="Unlock Your Limitless Potential Book" class="resource-img">
                 </div>
                 <div class="resource-content">
                     <h3 class="resource-heading">CGA Remains Top 5 Online High School in America by Niche</h3>
@@ -277,7 +277,7 @@
 
             <article class="resource-card">
                 <div class="resource-img-box">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="Unlock Your Limitless Potential Book" class="resource-img">
+                    <img src="https://img2.storyblok.com/f/90801/2394x2136/1b7ff016a8/curriculum-ebook-cover.png?auto=format&fit=crop&w=400&q=80" alt="Unlock Your Limitless Potential Book" class="resource-img">
                 </div>
                 <div class="resource-content">
                     <h3 class="resource-heading">CGA Remains Top 5 Online High School in America by Niche</h3>
@@ -288,7 +288,7 @@
 
             <article class="resource-card">
                 <div class="resource-img-box">
-                    <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=400&q=80" alt="Unlock Your Limitless Potential Book" class="resource-img">
+                    <img src="https://img2.storyblok.com/f/90801/2394x2136/ecb88a0dc0/facultyledclubs-mockup.png?auto=format&fit=crop&w=400&q=80" alt="Unlock Your Limitless Potential Book" class="resource-img">
                 </div>
                 <div class="resource-content">
                     <h3 class="resource-heading">CGA Remains Top 5 Online High School in America by Niche</h3>
@@ -444,7 +444,7 @@
         margin: 0 auto;
         padding: 0 20px;
     }
-    h2 { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 800; margin: 0; }
+    h2 { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 2.2rem; font-weight: 500; margin: 0; }
     
     .highlight-gold { color: var(--gold-light); font-style: italic; }
     .highlight-red-italic { color: var(--red-light); font-style: italic; }
@@ -486,7 +486,7 @@
         max-width: 500px;
         margin-bottom: 25px;
     }
-    .search-bar input { border: none; outline: none; width: 100%; font-size: 1rem; margin-left: 10px; }
+    .search-bar input { border: none; outline: none; width: 100%; font-family: 'Source Sans 3'; font-size: 1rem; margin-left: 10px; }
     
     .filter-tags { display: flex; flex-wrap: wrap; gap: 10px; }
     .tag-btn {
@@ -506,18 +506,19 @@
     /* SECTIONS COMMON */
     .articles-section { padding: 60px 0 40px; }
     .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; padding-bottom: 15px; }
-    .btn-pill-red { background: linear-gradient(135deg, #BA1F22, #5B000B); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; }
+    .btn-pill-red { background: linear-gradient(135deg, #BA1F22, #5B000B); color: white; padding: 10px 25px; border-radius: 50px; text-decoration: none; font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 500; text-transform: uppercase; }
     .btn-pill-red:hover { background: var(--red-dark); }
 
     /* MUST READ GRID */
     .must-read-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 30px; }
     
     /* Large Card */
-    .large-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 450px; display: flex; flex-direction: column; justify-content: flex-end; }
+    .large-card { position: relative; border-radius: 20px; overflow: hidden; min-height: 450px; display: flex; flex-direction: column; justify-content: flex-end; transition: transform 0.2s; } 
+    .large-card:hover { transform: translateY(-5px); }
     .card-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
     .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8) 20%, transparent 70%); z-index: 2; }
     .large-card .card-content { position: relative; z-index: 3; padding: 40px; color: white; }
-    .large-card h3 { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
+    .large-card h3 { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 1.8rem; font-weight: 500; margin: 15px 0; line-height: 1.2; }
     .large-card .excerpt { font-size: 0.95rem; opacity: 0.8; margin-bottom: 20px; }
     
     /* Stacked Cards */
@@ -527,7 +528,7 @@
     .small-card .img-wrapper { width: 45%; }
     .small-card .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
     .card-content-side { padding: 30px; width: 55%; display: flex; flex-direction: column; justify-content: center; }
-    .card-content-side h4 { font-size: 1.25rem; font-weight: 800; margin: 15px 0; line-height: 1.3; }
+    .card-content-side h4 { font-size: 1.3rem; font-weight: 600; margin: 15px 0; line-height: 1.3; }
 
     /* LATEST ARTICLES GRID */
     .latest-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 50px; }
@@ -536,16 +537,16 @@
     .card-img-top { height: 220px; }
     .card-img-top img { width: 100%; height: 100%; object-fit: cover; }
     .grid-card-body { padding: 30px; }
-    .grid-card-body h4 { color: var(--red-dark); font-size: 1.35rem; font-weight: 800; margin-top: 15px; line-height: 1.3; }
+    .grid-card-body h4 { color: var(--red-dark); font-size: 1.35rem; font-weight: 600; margin-top: 15px; line-height: 1.3; }
 
     /* BADGES & LINKS */
-    .article-badge { background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; }
-    .article-badge-gray { background: #e0e0e0; color: #555; padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; }
+    .article-badge { background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-family: 'Styrene', 'Montserrat', sans-serif ; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.5px; }
+    .article-badge-gray { background: #e0e0e0; color: #555; padding: 5px 12px; border-radius: 20px; font-family: 'Styrene', 'Montserrat', sans-serif ; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.5px; }
     
     .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 700; }
     .read-link { font-family: 'Styrene', 'Montserrat', sans-serif; color: #F39200; }
     .read-link-red { font-family: 'Styrene', 'Montserrat', sans-serif; color: var(--red-light); font-size: 0.85rem; font-weight: 800; margin-top: auto; }
-    .read-time { opacity: 0.7; }
+    .read-time { opacity: 0.7; font-family: 'Styrene'; font-weight: 500; }
 
     .events-module { padding: 80px 0; background: var(--beige); overflow: hidden; }
 
@@ -608,10 +609,10 @@
     .date-badge .month { display: block; font-size: 0.7rem; font-weight: 700; font-family: 'Styrene', 'Montserrat', sans-serif; color: #555; }
     .date-badge .day { display: block; font-size: 1.4rem; font-weight: 800; font-family: 'Styrene', 'Montserrat', sans-serif; color: var(--red-light); }
     .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-    .event-name { font-size: 1.2rem; font-weight: 700; margin: 0 0 10px 0; color: var(--red-dark); }
-    .event-meta { font-size: 0.75rem; font-weight: 700; color: #777; margin-bottom: 15px; display: flex; gap: 15px; }
+    .event-name { font-size: 1.3rem; font-weight: 600; margin: 0 0 10px 0; color: var(--red-dark); }
+    .event-meta { font-size: 0.75rem; font-weight: 600; color: #777; margin-bottom: 15px; display: flex; gap: 15px; }
     .event-desc { font-size: 0.9rem; color: #444; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; }
+    .card-footer { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
     .register-link { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 800; color: var(--red-light); letter-spacing: 0.5px; }
     .arrow-circle { width: 40px; height: 40px; background: var(--red-light); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
@@ -649,8 +650,8 @@
 
     /* Left Column */
     .resources-intro {
-       /* position: sticky;
-        top: 100px;  Keeps the left side locked in place while the user scrolls the right side */
+       position: sticky;
+       top: 100px;  /* Keeps the left side locked in place while the user scrolls the right side */
     }
 
     .resources-title {
@@ -679,7 +680,7 @@
 
     /* Orange Image Box */
     .resource-img-box {
-        background: #F39200; /* CGA Gold/Orange */
+        background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%);
         border-radius: 20px;
         width: 180px;
         height: 180px;
@@ -701,6 +702,7 @@
 
     .resource-card:hover .resource-img {
         transform: scale(1.15) rotate(-2deg);
+        filter: drop-shadow(8px 8px 12px rgba(152, 21, 28, 0.4));
     }
 
     /* Resource Content */
@@ -711,9 +713,9 @@
     }
 
     .resource-heading {
-        color: #98151C;
+        color: #98151c;
         font-size: 1.3rem;
-        font-weight: 800;
+        font-weight: 600;
         margin-bottom: 10px;
         line-height: 1.3;
     }
