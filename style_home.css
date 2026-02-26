@@ -331,9 +331,116 @@ h2.section-title {
     .btn-pill-red:hover { background: var(--red-dark); }
 
 
+:root {
+    --banner-bg: #ffffff; /* Light background */
+    --banner-text: var(--blue-dark);
+    --banner-height: 70px;
+}
+
+.scrolling-banner {
+    width: 100%;
+    background: var(--banner-bg);
+    overflow: hidden;
+    position: relative;
+    height: var(--banner-height);
+    display: flex;
+    align-items: center;
+    padding: 40px 0 40px 0;
+}
+
+.banner-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+/* THE SCROLLING TRACK */
+.scroll-track {
+    display: flex;
+    width: calc(250px * 10); /* Ensure width is enough for content */
+}
+
+.scroll-content {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollInfinite 30s linear infinite reverse;
+}
+
+.scroll-content span {
+    font-family: 'Styrene', sans-serif;
+    font-size: 2.6rem;
+    line-height: 3.2rem;
+    font-weight: 500;
+    color: var(--blue-mid);
+    padding: 0 50px;
+    text-transform: uppercase;
+}
+
+/* THE FADE EFFECT */
+.fade-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade-overlay.left {
+    left: 0;
+    background: linear-gradient(to right, var(--banner-bg) 20%, transparent);
+}
+
+.fade-overlay.right {
+    right: 0;
+    background: linear-gradient(to left, var(--banner-bg) 20%, transparent);
+}
+
+/* THE CTA BUTTON */
+.banner-cta {
+    position: absolute;
+    right: 10%;
+    transform: translateX(-24%);
+    z-index: 10;
+}
+
+.btn-banner-pill {
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    color: white;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    white-space: nowrap;
+}
+
+.btn-banner-pill:hover {
+    background: var(--blue-dark);
+    transform: translateY(-2px);
+}
+
+/* ANIMATION */
+@keyframes scrollInfinite {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Scrolls half-way (the duplicate content) then snaps back */
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+    .fade-overlay { width: 80px; }
+    .scroll-content span { padding: 0 20px; font-size: 0.75rem; }
+    .btn-banner-pill { padding: 6px 18px; font-size: 0.7rem; }
+}
+
+
 
     /* EVENTS MODULE */ 
-   .events-module { padding: 80px 0; background: var(--white); overflow: hidden; }
+   .events-module { padding: 100px 0px 20px 0px; background: var(--white); overflow: hidden; }
 
     .events-header {
         display: flex; justify-content: space-between; align-items: center;
@@ -423,7 +530,7 @@ h2.section-title {
 
 /* SECTION & CONTAINER STYLES */
     .split-content-section {
-        padding: 100px 0;
+        padding: 110px 0;
         background: #fff;
         font-family: 'Source Sans 3', sans-serif;
     }
@@ -455,7 +562,9 @@ h2.section-title {
     .rounded-feature-img {
         width: 100%;
         height: auto;
+        max-height: 480px;
         border-radius: 30px; /* Large rounded corners as shown in mockup */
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
         object-fit: cover;
     }
 
@@ -530,7 +639,7 @@ h2.section-title {
 /* STATS MODULE */ 
 
     .stats-module {
-        padding: 80px 0;
+        padding: 60px 0;
         background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
     }
 
@@ -587,6 +696,139 @@ h2.section-title {
             display: none;
         }
     }
+
+
+/* LEARNING PATHWAYS MODULE */
+.pathways-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.pathways-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    margin-bottom: 80px;
+}
+
+.pathways-header h2 {
+    flex: 1;
+}
+
+.pathways-header .header-right {
+    flex: 1.2;
+}
+
+.pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.pathway-card {
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Vertical Dividers */
+.pathway-card:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -20px;
+    top: 20%;
+    height: 76%;
+    width: 1px;
+    background: var(--grey-dark);
+    opacity: 0.5;
+}
+
+.pathway-icon-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pathway-icon-circle img {
+    width: 50px;
+    height: auto;
+}
+
+/* Icon Colors */
+.bg-gold { background-color: var(--gold-reg); }
+.bg-red { background-color: var(--red-reg); }
+.bg-blue { background-color: var(--blue-reg); }
+
+.pathway-card h3 {
+    font-family: 'Styrene', sans-serif;
+    color: var(--red-mid);
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+.pathway-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 30px;
+    /* Capping text to 3 lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+}
+
+.btn-learn-more {
+    display: inline-block;
+    background: var(--gold-dark);
+    color: white;
+    padding: 10px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Styrene', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    transition: transform 0.3s ease;
+}
+
+.btn-learn-more:hover {
+    transform: scale(1.05);
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 900px) {
+    .pathways-header {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .pathways-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .pathway-card:not(:last-child)::after {
+        display: none; /* Hide vertical lines on mobile */
+    }
+
+    /* Your Idea: Hide text on mobile until needed */
+    .pathway-description {
+        display: none; 
+    }
+
+    .pathway-card.active .pathway-description {
+        display: -webkit-box;
+        margin-top: 15px;
+    }
+}
 
 
 /* GET STARTED MODULE */    
