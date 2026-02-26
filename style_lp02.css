@@ -377,41 +377,43 @@ input {
 /* Speakers */
 .speakers { padding: 60px 0; background: white; }
 
-.speakers h2 { font-size: 2.2rem; text-align: center; font-weight: 500; margin-bottom: 60px; }
+.speakers h2 { font-size: 2.2rem; text-align: center; font-weight: 500; margin-bottom: 70px; }
 
 .speakers-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 60px;
 }
 
 .speaker {
     display: flex;
     gap: 28px;
-    background: #fff8e8;
-    padding: 32px;
-    border-radius: 16px;
 }
 
-.photo {
-    width: 160px;
-    height: 160px;
-    border-radius: 50%;
-    background: #ccc;
+.speaker-img-box {
+    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%);
+    border-radius: 20px;
+    width: 190px;
+    height: 190px;
     flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 15px;
 }
 
-.photo-dr { background: url('your-dr-rebecca.jpg') center/cover; }
-.photo-alex { background: url('your-alex.jpg') center/cover; }
-.photo-student { width: 100px; height: 170px; border-radius: 50px; /*background: url('your-rosie.jpg') center/cover; width: 120px; height: 120px;*/ background: linear-gradient(135deg, #BA1F22, #5B000B); }
+.speaker-img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.15); transition: transform 0.3s ease; }
 
-.bio h3 { font-size: 1.35rem; color: var(--gold-dark); margin: 0 0 8px; }
+.photo-student { width: 100px; height: 170px; border-radius: 50px; background: linear-gradient(135deg, var(--red-light), var(--red-dark)); }
 
-.title { font-style: italic; color: #555; margin: 0 0 16px; }
+.bio h3 { font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 500; font-size: 1.6rem; color: var(--red-light); margin: 0 0 8px; }
+
+.title { font-style: italic; font-weight: 600; margin: 0 0 16px; }
 
 /* Testimonial */
 .student-quote-module {
-        padding: 80px 0 160px 0;
+        padding: 90px 0 160px 0;
         background-color: var(--white);
     }
 
@@ -453,7 +455,7 @@ input {
     /* 2. The Structural Vertical Line */
     .quote-line-divider {
         width: 8px;
-        height: 206px;
+        height: 204px;
         background-color: var(--red-light);
         flex-shrink: 0;
     }
@@ -465,7 +467,7 @@ input {
     }
 
     .main-quote-text {
-        font-size: clamp(1.7rem, 3.5vw, 2.3rem);
+        font-size: clamp(1.7rem, 3.5vw, 2.2rem);
         font-weight: 600;
         line-height: 1.2;
         color: var(--black);

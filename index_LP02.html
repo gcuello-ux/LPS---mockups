@@ -137,13 +137,47 @@
     </div>
     </section>
 
+    <script>
+    const observerOptions = {
+        threshold: 0.5 // Trigger when 50% of the module is visible
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counters = entry.target.querySelectorAll('.stat-number');
+                counters.forEach(counter => {
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText.replace(/,/g, '');
+                        // Adjust speed here: target / divisor
+                        const speed = target / 50; 
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + speed).toLocaleString();
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                });
+                observer.unobserve(entry.target); // Stop observing after animation runs once
+            }
+        });
+    }, observerOptions);
+
+    counterObserver.observe(document.querySelector('.stats-module'));
+</script>
+
+
     <section class="speakers">
         <div class="container">
             <h2>Meet Your <span class="highlight"><i>Speakers</i></span></h2>
 
             <div class="speakers-grid">
                 <div class="speaker">
-                    <div class="photo photo-dr"></div>
+                    <div class="speaker-img-box"><img src="https://file.aiquickdraw.com/imgcompressed/img/compressed_4823d6e121b9f6c3600b1f313ccb4321.webp?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Unlock Your Limitless Potential Book" class="speaker-img"></div>
                     <div class="bio">
                         <h3>Dr. Rebecca English</h3>
                         <p class="title">Queensland University of Technology</p>
@@ -152,7 +186,7 @@
                 </div>
 
                 <div class="speaker">
-                    <div class="photo photo-alex"></div>
+                    <div class="speaker-img-box"><img src="https://file.aiquickdraw.com/imgcompressed/img/compressed_01dbcb7894299234d3e4b13a35075db5.webp?auto=format&amp;fit=crop&amp;w=400&amp;q=80" alt="Unlock Your Limitless Potential Book" class="speaker-img"></div>
                     <div class="bio">
                         <h3>Alex Cork</h3>
                         <p class="title">Head of Admissions, Crimson Global Academy</p>
