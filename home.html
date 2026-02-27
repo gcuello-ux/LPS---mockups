@@ -52,6 +52,7 @@
 
 
 <section class="scrolling-banner">
+ <div class="container">
     <div class="banner-wrapper">
         <div class="fade-overlay left"></div>
         <div class="fade-overlay right"></div>
@@ -73,6 +74,7 @@
             <a href="#" class="btn-banner-pill">Join the Future <i class="arrow-right"></i></a>
         </div>
     </div>
+ </div>
 </section>
 
 
@@ -291,6 +293,225 @@
         </div>
     </div>
 </section>
+
+
+<section class="persona-section">
+    <div class="container hub-header">
+        <h2>Who is <span class="highlight-red-italic">CGA For?</span></h2>
+        <div class="header-center">
+            <p>Our diverse community includes academically ambitious learners, student-athletes and performers, globally mobile families, and students looking to build confidence.</p>
+            <a href="#" class="btn-pill-red">VIEW ALL PATHWAYS</a>
+        </div>
+    </div>
+
+    <div class="persona-interactive-area">
+
+        <div class="container persona-grid">
+            <div class="persona-card active">
+                <div class="persona-text-content">
+                    <h3>Academically <br> Ambitious</h3>
+                    <p class="reveal-p">Explore subjects beyond your curriculum and fast-track your academic career towards Ivy League universities.</p>
+                </div>
+                <div class="persona-image-box">
+                    <img src="https://pngimg.com/uploads/student/student_PNG124.png" alt="Student">
+                </div>
+            </div>
+
+            <div class="persona-card">
+                <div class="persona-text-content">
+                    <h3>Athletes & <br> Performers</h3>
+                    <p class="reveal-p">Balance elite training with a world-class education through our flexible, asynchronous learning models.</p>
+                </div>
+                <div class="persona-image-box">
+                    <img src="https://pngimg.com/uploads/student/student_PNG124.png" alt="Student">
+                </div>
+            </div>
+
+            <div class="persona-card">
+                <div class="persona-text-content">
+                    <h3>Travelling <br> Students</h3>
+                    <p class="reveal-p">Take your classroom with you. Our global campus ensures consistency for families on the move.</p>
+                </div>
+                <div class="persona-image-box">
+                    <img src="https://pngimg.com/uploads/student/student_PNG124.png" alt="Student">
+                </div>
+            </div>
+
+            <div class="persona-card">
+                <div class="persona-text-content">
+                    <h3>Confident <br> Learners</h3>
+                    <p class="reveal-p">Build self-assurance in a supportive, small-class environment tailored to your specific pace.</p>
+                </div>
+                <div class="persona-image-box">
+                    <img src="https://pngimg.com/uploads/student/student_PNG124.png" alt="Student">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.persona-item').forEach(item => {
+    item.addEventListener('click', function() {
+        // 1. Remove 'active' class from all personas
+        document.querySelectorAll('.persona-item').forEach(p => {
+            p.classList.remove('active');
+        });
+
+        // 2. Add 'active' class to the clicked one
+        this.classList.add('active');
+    });
+});
+</script>
+
+
+<section class="community-stats-section">
+    <div class="container">
+        <div class="get-started-header">
+            <h2 class="header-left">Virtual School,<br><span class="highlight-red-italic">Real Community</span></h2>
+            <div class="stats-header-right">
+                <p>Craft a learning pathway that fits your lifestyle and goals - live group classes, one-to-one instruction, or self-paced learning. Full-time or part-time, every option is yours to choose.</p>
+                <div class="stats-header-btns">
+                    <a href="#" class="btn-pill-red">Student Testimonials</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="stats-video-box">
+            <video autoplay muted loop playsinline class="stats-bg-video">
+                <source src="https://cdn.pixabay.com/video/2020/06/30/43459-436106182_large.mp4" type="video/mp4">
+            </video>
+
+            <div class="stats-video-overlay"></div>
+
+            <div class="stats-overlay-content">
+                <div class="stats-col left-col">
+                    <div class="stat-group">
+                        <span class="stat-num">1000+</span>
+                        <span class="stat-tag">STUDENTS</span>
+                    </div>
+                    <div class="stat-divider-hr"></div>
+                    <div class="stat-group">
+                        <span class="stat-num">30+</span>
+                        <span class="stat-tag">COUNTRIES</span>
+                    </div>
+                    <div class="stat-divider-hr"></div>
+                    <div class="stat-group">
+                        <span class="stat-num">85+</span>
+                        <span class="stat-tag">TEACHERS</span>
+                    </div>
+                </div>
+
+                <div class="stats-col right-col">
+                    <div class="stat-group">
+                        <span class="stat-tag">LOCATION</span>
+                        <span class="stat-value gold">Worldwide</span>
+                    </div>
+                    <div class="stat-divider-hr"></div>
+                    <div class="stat-group">
+                        <span class="stat-tag">ESTABLISHED</span>
+                        <span class="stat-value gold">2019</span>
+                    </div>
+                    <div class="stat-divider-hr"></div>
+                    <div class="stat-group">
+                        <span class="stat-tag">STUDENTS AGE</span>
+                        <span class="stat-value gold">7-18 years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="accreditations-section">
+    <div class="container">
+        <div class="accreditation-header">
+            <h2>Our <span class="highlight-red-italic">Accreditations</span> and <span class="highlight-red-italic">Rankings</span></h2>
+            <p>From Primary through to High School, our learning pathways are respected internationally for their academic rigour</p>
+        </div>
+        
+        <div class="logo-slider-wrapper">
+            <div class="fade-overlay-accred left"></div>
+            <div class="fade-overlay-accred right"></div>
+            <div class="logo-track">
+                <img src="logos/ncaa.png" alt="NCAA">
+                <img src="logos/cambridge.png" alt="Cambridge Assessment">
+                <img src="logos/pearson.png" alt="Pearson Edexcel">
+                <img src="logos/wasc.png" alt="WASC">
+                <img src="logos/ncaa.png" alt="NCAA">
+                <img src="logos/cambridge.png" alt="Cambridge Assessment">
+                <img src="logos/pearson.png" alt="Pearson Edexcel">
+                <img src="logos/wasc.png" alt="WASC">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="innovation-bento">
+    <div class="container">
+        <div class="bento-wrapper">
+            <div class="bento-info">
+                <h5 class="label-gold">LOREM IPSUM</h5>
+                <h2 class="bento-title">Where Curiosity<br><span class="highlight-gold">Meets Innovation</span></h2>
+                <p class="bento-lead">From Primary through to High School, our learning pathways are respected internationally for their academic rigour.</p>
+                <div class="bento-actions">
+                    <a href="#" class="btn-solid-white">CGA Home</a>
+                </div>
+            </div>
+
+            <div class="bento-visual">
+                <video autoplay muted loop playsinline class="bento-video">
+                    <source src="https://cdn.pixabay.com/video/2024/02/27/202134-917314709_large.mp4" type="video/mp4">
+                </video>
+                <div class="bento-overlay-gradient"></div>
+
+                <div class="table-card-container">
+                    <div class="table-pill">HOW CLASSES WORK</div>
+                    <div class="table-viewport">
+                        <div class="table-slides" id="tableSlides">
+                            <div class="table-page">
+                                <ul class="check-list">
+                                    <li>Interactive online classes</li>
+                                    <li>Average 10-12 class size</li>
+                                    <li>Inquiry-led and collaborative</li>
+                                    <li>Builds critical-thinking skills</li>
+                                    <li>Live group classes or 1:1 instruction</li>
+                                </ul>
+                            </div>
+                            <div class="table-page alt-theme">
+                                <ul class="check-list">
+                                    <li>Flexible global scheduling</li>
+                                    <li>24/7 Support access</li>
+                                    <li>Project-based learning</li>
+                                    <li>Advanced digital tools</li>
+                                    <li>University prep focus</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-controls">
+                        <button onclick="slideTable(-1)" class="nav-arrow">←</button>
+                        <button onclick="slideTable(1)" class="nav-arrow">→</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+let tableIndex = 0;
+function slideTable(n) {
+    const slides = document.getElementById('tableSlides');
+    const totalSlides = 2; // Adjust if you add more
+    tableIndex = (tableIndex + n + totalSlides) % totalSlides;
+    slides.style.transform = `translateX(-${tableIndex * 100}%)`;
+}
+</script>
+
+
 
 
 <section class="split-content-section">
