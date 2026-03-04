@@ -370,7 +370,7 @@ h2.section-title {
 
 .scroll-content span {
     font-family: 'Styrene', sans-serif;
-    font-size: 2.55rem;
+    font-size: 1.65rem;
     line-height: 3.2rem;
     font-weight: 500;
     color: var(--blue-mid);
@@ -527,119 +527,132 @@ h2.section-title {
     }
 
 
-.persona-section {
-    padding: 80px 0 80px 0;
-    background: #fff;
+/* STUDENT PERSONA SECTION */
+
+.center-buttons {
+  margin-top: 20px;
+  display: inline-block;
 }
 
-.persona-interactive-area {
-    position: relative;
-    background: url('https://img.freepik.com/free-photo/motion-urban-street-bright-field_1253-468.jpg?semt=ais_user_personalization&w=740') no-repeat center bottom;
-    background-size: cover;
-    min-height: 580px;
-    margin-top: 20px;
-    display: flex;
-    align-items: flex-end; /* Keeps students grounded */
+.persona-hub {
+  padding: 80px 0;
+  background: #fff;
+}
+
+.persona-band-bg {
+  position: relative;
+  background: url(https://img.freepik.com/free-photo/motion-urban-street-bright-field_1253-468.jpg?semt=ais_user_personalization&w=740) no-repeat center bottom;
+  background-size: cover;
+  margin-top: 150px;
+  height: 410px; /* Fixed background band height */
+  align-items: flex-end;
+}
+
+/* NEW: Full-width continuous gradient overlay */
+.persona-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 250px; /* Adjust height to cover the text area */
+  /* Strong black gradient for maximum contrast */
+  background: linear-gradient(to top, 
+      rgba(0,0,0,0.9) 0%, 
+      rgba(0,0,0,0.65) 50%, 
+      rgba(0,0,0,0) 100%);
+  z-index: 2; /* Sits above the background, but below student heads */
+  pointer-events: none; /* Allows hover events to pass through to cards */
 }
 
 .persona-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    z-index: 2;
-    width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0; /* Tighten gap to make the black gradient look like one continuous band */
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 470px;
 }
 
 .persona-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    height: 520px;
-    cursor: pointer;
-    transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: -20px;
 }
 
-/* Hover/Active Overlay */
-.persona-card::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: rgba(253, 160, 2, 0); /* Gold fade */
-    transition: background 0.4s ease;
-    border-radius: 20px 20px 0 0;
-    z-index: -1;
+/* Extended Dark Gradient Band */
+.persona-text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 80px 20px 30px; 
+  z-index: 4; /* Content sits on top of everything */
+  text-align: left;
 }
 
-.persona-card.active::after,
-.persona-card:hover::after {
-    background: rgba(232, 114, 5, 0.8);
+.persona-label {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  border-left: 4px solid #f9a61a; /* Gold Vertical Line */
+  padding-left: 12px;
+  width: 85%;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Extra pop */
 }
 
-/* Text Styling */
-.persona-text-content {
-    padding: 0 20px;
-    text-align: center;
-    position: absolute;
-    top: 22px;
-    width: auto;
+/* Reveal Logic */
+.persona-desc {
+  color: var(--white);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 10px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  width: 85%;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Extra pop */
 }
 
-.persona-text-content h3 {
-    font-size: 1.5rem;
-    color: var(--white);
-    margin-bottom: 10px;
-    transition: transform 0.4s ease;
-    font-weight: 500;
+.persona-card.active .persona-desc,
+.persona-card:hover .persona-desc {
+  opacity: 1;
+  height: auto;
+  margin-top: 15px;
 }
 
-.reveal-p {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: var(--white);
-    opacity: 0;
-    max-height: 0;
-    transition: all 0.4s ease;
+/* Hover Box Logic */
+.persona-hover-box {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%); 
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
 }
 
-/* Interaction Logic */
-.persona-card.active .reveal-p,
-.persona-card:hover .reveal-p {
-    opacity: 1;
-    max-height: 100px;
+.persona-card.active .persona-hover-box,
+.persona-card:hover .persona-hover-box {
+  opacity: 1;
 }
 
-.persona-card.active h3,
-.persona-card:hover h3 {
-    transform: translateY(-10px);
+.persona-image-wrapper img {
+  width: 91%;
+  z-index: 2;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
-
-/* Student Image Control */
-.persona-image-box {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.persona-image-box img {
-    width: 90%;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
-}
-
-/* MOBILE FIX */
-@media (max-width: 768px) {
-    .persona-interactive-area { /* background:  var(--blue-dark); */ padding-top: 40px; }
-    .persona-curve-top { display: none; }
-    .persona-grid { grid-template-columns: 1fr; }
-    .persona-card { height: auto; padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .persona-text-content { position: relative; top: 0; text-align: left; padding: 0; }
-    .persona-text-content h3 { color: #fff; }
-    .reveal-p { color: #ccc; opacity: 1; max-height: none; }
-    .persona-image-box { display: none; } /* Hide images on mobile for cleaner scroll */
-}
-
 
 
 /* COMMUNITY STATS BENTO VIDEO */ 
@@ -821,13 +834,13 @@ h2.section-title {
 .logo-track {
     display: flex;
     align-items: center;
-    gap: 80px;
-    animation: scrollInfinite 25s linear infinite;
+    gap: 50px;
+    animation: scrollInfinite 43s linear infinite;
     width: max-content;
 }
 
 .logo-track img {
-    height: 50px;
+    height: 100px;
     width: auto;
     filter: grayscale(1);
     opacity: 0.7;
@@ -1461,7 +1474,7 @@ p.bento-lead {
     .hub-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
     
     .hub-header { text-align: center; margin-bottom: 50px; }
-    .hub-header h2 { font-size: 2.2rem; font-weight: 500; margin-bottom: 15px; }
+    .hub-header h2 { font-size: 2.2rem; font-weight: 500; margin-bottom: 20px; }
     .hub-header .highlight { color: #98151C; }
 
     /* PRECISION GRID: Blog and Stats now occupy exactly 1/4 of the width each */
