@@ -16,7 +16,7 @@
 <body>
 
 
-<section class="hero-module">
+<section class="hero-module" id="hero-homepage">
     <video autoplay muted loop playsinline class="hero-video">
         <source src="https://cdn.pixabay.com/video/2022/09/04/130213-748134209_large.mp4" type="video/mp4">
     </video>
@@ -55,7 +55,7 @@
 </section>
 
 
-<section class="scrolling-banner">
+<section class="scrolling-banner" id="scrolling-banner">
  <div class="container">
     <div class="banner-wrapper">
         <div class="fade-overlay left"></div>
@@ -82,7 +82,7 @@
 </section>
 
 
-<section class="events-module">
+<section class="events-module" id="events-module">
         <div class="container">
             <div class="section-header">
                 <h2>Upcoming <span class="highlight-red-italic">Webinars & Events</span></h2>
@@ -169,7 +169,7 @@
 
 
 
-<section class="split-content-section">
+<section class="split-content-section" id="text-image">
     <div class="container split-container">
         
         <div class="split-image-col">
@@ -192,7 +192,7 @@
 
 
 
-<section class="stats-module">
+<section class="stats-module" id="stats-module">
     <div class="container stats-grid">
         <div class="stat-item">
             <div class="stat-number" data-target="200">0</div><span class="stat-suffix">+</span>
@@ -299,7 +299,7 @@
 </section>
 
 
-<section class="persona-hub">
+<section class="persona-hub" id="student-persona">
   <div class="container hub-header">
     <div class="header-content">
         <h2>Who is <span class="highlight-red-italic">CGA For?</span></h2>
@@ -312,65 +312,44 @@
 
   <div class="persona-band-bg">
     
+    <div class="container persona-text-grid-container">
+        
+    <div class="persona-text-grid">
+        <div class="persona-text-card">
+          <h3 class="persona-label">Academically Ambitious</h3>
+          <p class="persona-desc">Explore subjects beyond your curriculum and fast-track your academic career towards ivy league universities.</p>
+        </div>
+        <div class="persona-text-card">
+          <h3 class="persona-label">Athletes & Performers</h3>
+          <p class="persona-desc">Balance elite training with a world-class education through our flexible learning models.</p>
+        </div>
+        <div class="persona-text-card">
+          <h3 class="persona-label">Travelling Students</h3>
+          <p class="persona-desc">Take your classroom with you. <br>Our global campus ensures consistency for families on the move.</p>
+        </div>
+        <div class="persona-text-card">
+          <h3 class="persona-label">Confident Learners</h3>
+          <p class="persona-desc">Build self-assurance in a supportive, small-class environment tailored to your pace.</p>
+        </div>
+    </div>
+
+    </div>
+
     <div class="persona-gradient-overlay"></div>
 
-    <div class="container persona-grid">
-      
-      <div class="persona-card">
-        <div class="persona-hover-box"></div>
-        <div class="persona-image-wrapper">
-           <img src="images/PNG/academic.webp" alt="Academically Ambitious">
-        </div>
-        <div class="persona-text-overlay">
-          <div class="text-animate-wrap">
-            <h3 class="persona-label">Academically Ambitious</h3>
-            <p class="persona-desc">Explore subjects beyond your curriculum and fast-track your academic career towards ivy league universities.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="persona-card">
-        <div class="persona-hover-box"></div>
-        <div class="persona-image-wrapper">
-           <img src="images/PNG/athlete.webp" alt="Athletes & Performers">
-        </div>
-        <div class="persona-text-overlay">
-          <div class="text-animate-wrap">
-            <h3 class="persona-label">Athletes & Performers</h3>
-            <p class="persona-desc">Balance elite training with a world-class education through our flexible learning models.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="persona-card">
-        <div class="persona-hover-box"></div>
-        <div class="persona-image-wrapper">
-           <img src="images/PNG/travel.webp" alt="Travelling Students">
-        </div>
-        <div class="persona-text-overlay">
-          <div class="text-animate-wrap">
-            <h3 class="persona-label">Travelling Students</h3>
-            <p class="persona-desc">Take your classroom with you. Our global campus ensures consistency for families on the move.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="persona-card">
-        <div class="persona-hover-box"></div>
-        <div class="persona-image-wrapper">
-           <img src="images/PNG/confident.webp" alt="Confident Learners">
-        </div>
-        <div class="persona-text-overlay">
-          <div class="text-animate-wrap">
-            <h3 class="persona-label">Confident Learners</h3>
-            <p class="persona-desc">Build self-assurance in a supportive, small-class environment tailored to your pace.</p>
-          </div>
-        </div>
-      </div>
+    <div class="container persona-grid-container">
+    
+    <div class="persona-visual-grid">
+        <div class="persona-image-box"><img src="images/PNG/academic.webp" alt="Academically Ambitious"></div>
+        <div class="persona-image-box"><img src="images/PNG/athlete.webp" alt="Athletes & Performers"></div>
+        <div class="persona-image-box"><img src="images/PNG/travel.webp" alt="Travelling Students"></div>
+        <div class="persona-image-box"><img src="images/PNG/confident.webp" alt="Confident Learners"></div>
+    </div>
       
     </div>
   </div>
 </section>
+
 
 <script>
     const personaCards = document.querySelectorAll('.persona-card');
@@ -386,7 +365,7 @@ personaCards.forEach(card => {
 </script>
 
 
-<section class="community-stats-section">
+<section class="community-stats-section" id="community-stats">
     <div class="container">
         <div class="get-started-header">
             <h2 class="header-left">Virtual School,<br><span class="highlight-red-italic">Real Community</span></h2>
@@ -445,7 +424,7 @@ personaCards.forEach(card => {
 </section>
 
 
-<section class="accreditations-section">
+<section class="accreditations-section" id="accreditations-scrolling">
     <div class="container">
         <div class="accreditation-header">
             <h2>Our <span class="highlight-red-italic">Accreditations</span> and <span class="highlight-red-italic">Rankings</span></h2>
@@ -482,7 +461,7 @@ personaCards.forEach(card => {
 </section>
 
 
-<section class="innovation-bento">
+<section class="innovation-bento" id="Popout-Image-v1">
     <div class="container">
         <div class="bento-wrapper">
             <div class="bento-info">
@@ -569,7 +548,7 @@ function slideTable(n) {
 </section>
 
 
-<section class="get-started-section">
+<section class="get-started-section" id="cards-icon-hover">
     <div class="container">
         
         <div class="get-started-header">
@@ -637,7 +616,7 @@ function slideTable(n) {
 
 
 
-<section class="community-hub">
+<section class="community-hub" id="community-hub">
     <div class="hub-container">
         
             <h2 class="section-title">Explore the <span>Community</span></h2>
@@ -704,7 +683,7 @@ function slideTable(n) {
 </section>
 
 
-<section class="faq-module">
+<section class="faq-module" id="faq-accordion">
     <div class="container faq-grid">
         
         <div class="faq-header">

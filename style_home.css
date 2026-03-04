@@ -548,69 +548,91 @@ h2.section-title {
   align-items: flex-end;
 }
 
-/* NEW: Full-width continuous gradient overlay */
+/* THE GRADIENT: Middle-High Layer */
 .persona-gradient-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 250px; /* Adjust height to cover the text area */
-  /* Strong black gradient for maximum contrast */
-  background: linear-gradient(to top, 
-      rgba(0,0,0,0.9) 0%, 
-      rgba(0,0,0,0.65) 50%, 
-      rgba(0,0,0,0) 100%);
-  z-index: 2; /* Sits above the background, but below student heads */
-  pointer-events: none; /* Allows hover events to pass through to cards */
+  height: 260px; /* Covers the bottom half of the band */
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+  z-index: 5; /* Above images, below text */
+  pointer-events: none;
 }
 
-.persona-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0; /* Tighten gap to make the black gradient look like one continuous band */
+.persona-grid-container {
   position: absolute;
-  top: -80px;
+  top: -126px; /* Pop out effect */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 470px;
+  height: 520px;
 }
 
-.persona-card {
-  position: relative;
-  overflow: hidden;
+.persona-text-grid-container {
+  position: absolute;
+  top: -90px; /* Pop out effect */
+  left: 50%;
+  margin-left: 15px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 520px;
+  z-index: 10;
+}
+
+/* THE IMAGES: Middle-Low Layer */
+.persona-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* Below the gradient */
+}
+
+.persona-image-box img {
+    width: 94%;
+    height: 570px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+/* THE TEXT: Top Layer */
+.persona-text-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.persona-text-card {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  margin-bottom: -20px;
-}
-
-/* Extended Dark Gradient Band */
-.persona-text-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  padding: 80px 20px 30px; 
-  z-index: 4; /* Content sits on top of everything */
+  padding: 0 20px 40px;
   text-align: left;
 }
 
 .persona-label {
-  color: #fff;
-  font-size: 1.4rem;
+  color: #ffffff;
   font-weight: 700;
-  margin: 0;
-  border-left: 4px solid #f9a61a; /* Gold Vertical Line */
+  font-size: 1.45rem;
+  border-left: 4px solid #f9a61a;
   padding-left: 12px;
-  width: 85%;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Extra pop */
+  pointer-events: auto; /* Enable hover on the text areas */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.persona-label h3{
+  margin-bottom: 6px;
 }
 
 /* Reveal Logic */
 .persona-desc {
   color: var(--white);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.5;
   margin-top: 10px;
   opacity: 0;
@@ -618,41 +640,18 @@ h2.section-title {
   overflow: hidden;
   transition: all 0.4s ease;
   width: 85%;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* Extra pop */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
 }
 
-.persona-card.active .persona-desc,
-.persona-card:hover .persona-desc {
+
+.persona-text-card.active .persona-desc,
+.persona-text-card:hover .persona-desc {
   opacity: 1;
   height: auto;
-  margin-top: 15px;
-}
+  margin-top: 0px;
+  margin-bottom: 20px;
+} 
 
-/* Hover Box Logic */
-.persona-hover-box {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-dark) 100%); 
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  z-index: 1;
-  border-top-left-radius: 24px;
-  border-top-right-radius: 24px;
-}
-
-.persona-card.active .persona-hover-box,
-.persona-card:hover .persona-hover-box {
-  opacity: 1;
-}
-
-.persona-image-wrapper img {
-  width: 91%;
-  z-index: 2;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
 
 
 /* COMMUNITY STATS BENTO VIDEO */ 
@@ -840,7 +839,7 @@ h2.section-title {
 }
 
 .logo-track img {
-    height: 100px;
+    height: 120px;
     width: auto;
     filter: grayscale(1);
     opacity: 0.7;
@@ -1608,6 +1607,10 @@ p.bento-lead {
         max-width: 90%;
         text-align: left;
     }
+
+    .faq-answer p {
+        margin-top: 4px;
+    }   
 
     /* FAQ MOBILE OPTIMIZATION */
     @media (max-width: 900px) {
