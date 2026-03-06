@@ -149,11 +149,12 @@ h1, h2, h3 {
 .event-meta i { color: var(--red-light); margin-right: 8px; }
 
 .hero h1 {
-    font-size: 3.2rem;
+    font-size: 2.85rem;
     margin: 0 0 26px;
+    text-align: left;
 }
 
-.subtitle { font-size: 1.15rem; margin: 0 0 32px; color: #444; }
+.subtitle { font-size: 1.15rem; text-align: left; margin: 0 0 32px; color: #444; }
 
 .hero-cta {
     display: inline-block;
@@ -257,9 +258,7 @@ h1, h2, h3 {
 
 .form-box h3 { color: var(--black); margin-top: 0px; margin-bottom: 16px; font-size: 1.45rem; font-weight: 500; }
 
-.form-box p { color: var(--red-dark); font-size: 0.9rem; }
-
-.label { font-weight: 600; color: var(--red-dark); margin: 20px 0 12px; display: block; }
+.label { font-weight: 600; font-size: 0.9rem; color: var(--red-dark); margin: 20px 0 12px; display: block; }
 
 .role-toggle {
     display: flex;
@@ -295,6 +294,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 0.85rem;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .submit-btn {
@@ -373,7 +373,7 @@ input {
     }
 
 /* Speakers */
-.speakers { padding: 60px 0; background: white; }
+.speakers { padding: 60px 0px 130px; background: white; }
 
 .speakers h2 { font-size: 2.2rem; text-align: center; font-weight: 500; margin-bottom: 70px; }
 
@@ -407,93 +407,11 @@ input {
 
 .bio h3 { font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 500; font-size: 1.6rem; color: var(--red-light); margin: 0 0 8px; }
 
-.title { font-style: italic; font-weight: 600; margin: 0 0 16px; }
+.bio p { font-size: 0.95rem; }
 
-/* Testimonial */
-.student-quote-module {
-        padding: 90px 0 160px 0;
-        background-color: var(--white);
-    }
+.title { font-style: italic; font-weight: 600; margin: 0 0 18px; }
 
-    .quote-grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 40px;
-        gap: 50px;
-    }
 
-    /* 1. The Gradient Pill Container */
-    .quote-visual {
-        flex-shrink: 0;
-    }
-
-    .gradient-pill {
-        width: 160px;
-        height: 260px;
-        background: linear-gradient(180deg, var(--red-reg) 0%, var(--red-dark) 100%);
-        border-radius: 150px; /* Pill shape */
-        position: relative;
-        overflow: hidden; /* Clips the bottom of the image if needed */
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-    }
-
-    .student-pill-img {
-        width: 150%;
-        height: auto;
-        object-fit: contain;
-        position: relative;
-        bottom: -10px;
-    }
-
-    /* 2. The Structural Vertical Line */
-    .quote-line-divider {
-        width: 8px;
-        height: 204px;
-        background-color: var(--red-light);
-        flex-shrink: 0;
-    }
-
-    /* 3. The Text Content */
-    .quote-content {
-        text-align: left;
-        max-width: 780px;
-    }
-
-    .main-quote-text {
-        font-size: clamp(1.7rem, 3.5vw, 2.2rem);
-        font-weight: 600;
-        line-height: 1.2;
-        color: var(--black);
-        margin: 0 0 25px 0;
-    }
-
-    .main-quote-text .accent {
-        color: var(--red-light);
-    }
-
-    .main-quote-text .accent-italic {
-        color: var(--red-light);
-        font-style: italic;
-    }
-
-    .quote-author-info {
-        font-family: 'Styrene','Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: var(--red-light);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .quote-author-info .author-role {
-        font-weight: 400;
-        text-transform: none;
-    }
 
 /* Sticky Footer */
 .sticky-footer {

@@ -417,6 +417,7 @@ h2.section-title {
     font-size: 0.8rem;
     font-weight: 500;
     white-space: nowrap;
+    margin-right: -108px;
 }
 
 .btn-banner-pill:hover {
@@ -818,14 +819,21 @@ h2.section-title {
     padding: 20px 0;
 }
 
-.fade-overlay-accred .left {
-    position: relative;
+.fade-overlay-accred {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade-overlay-accred.left {
     left: 0;
     background: linear-gradient(to right, var(--beige) 20%, transparent);
 }
 
-.fade-overlay-accred .right {
-    position: relative;
+.fade-overlay-accred.right {
     right: 0;
     background: linear-gradient(to left, var(--beige) 20%, transparent);
 }

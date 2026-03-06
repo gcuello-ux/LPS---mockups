@@ -119,103 +119,138 @@ h1, h2, h3 {
     padding: 50px 0 60px;
 }
 
-.hero-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-    gap: 20px;
+/* 1. HERO HEADER Styles */
+.hero-header {
+  position: relative;
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/JPG/nature_bg.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 60px 0;
+  color: var(--white);
 }
 
-.free-tag {
-    background: white;
-    color: var(--red-light);
-    font-weight: 700;
-    text-transform: uppercase;
-    padding: 6px 16px;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
 }
 
-.event-meta span {
-    font-weight: 600;
-    color: #333;
-    margin: 0 16px;
-    font-size: 0.95rem;
+.badge-outline {
+  border: 1px solid var(--white);
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  font-family: 'Styrene', 'Montserrat', sans-serif;
 }
 
-.event-meta i { color: var(--red-light); margin-right: 8px; }
-
-.hero h1 {
-    font-size: 3.2rem;
-    margin: 0 0 26px;
+.hero-text-area h1 {
+  font-size: 2.9rem;
+  max-width: 780px;
+  margin: 25px 0;
+  line-height: 1.1;
 }
 
-.subtitle { font-size: 1.15rem; margin: 0 0 32px; color: #444; }
+.highlight-gold-italic {
+  color: var(--gold-light);
+  font-style: italic;
+}
 
-.hero-cta {
-    display: inline-block;
-    background: linear-gradient(135deg, #BA1F22, #5B000B);
-    color: white;
-    padding: 8px 30px;
-    border-radius: 50px;
+.hero-info-sidebar {
+  padding: 55px 0px 20px 10px;
+  min-width: 220px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+}
+
+.btn-white-pill {
+  display: inline-block;
+  background: var(--white);
+  color: var(--red-light);
+  padding: 10px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: 'Styrene', 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: transform 0.2s;
+}
+
+/* 2. URGENCY BANNER Styles */
+.urgency-banner {
+  background: linear-gradient(90deg, var(--red-dark), var(--red-light), var(--red-dark));
+  padding: 10px 0;
+  color: var(--white);
+}
+
+.countdown-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.timer-unit {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.timer-unit .number {
+  font-size: 1.7rem;
+  font-family: 'Styrene', 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+  .timer-unit .label {
+    font-size: 1.1rem;
+    color: var(--white);
+}
+
+.timer-divider {
+  width: 1px;
+  height: 30px;
+  background: rgba(255,255,255,0.3);
+}
+
+/* 3. STRATEGIC PAUSE Styles */
+.form-image {
+  padding: 80px 0;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.highlight-red-italic {
+  color: var(--red-light);
+  font-style: italic;
+}
+
+.headline-col h2 {
     font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-size: 2.2rem;
     font-weight: 500;
-    text-decoration: none;
-    font-size: 0.95rem;
+    margin: 0;
 }
 
-.hero-cta:hover { background: var(--red-dark); }
-
-.urgency-strip {
-    background: linear-gradient(90deg, var(--red-dark), var(--red-light), var(--red-dark));
-    color: white;
-    overflow: hidden;
-    height: 44px;
-    line-height: 44px;
-    font-size: 1.05rem;
-    font-weight: 600;
-    text-align: center;
-    position: relative;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+.description-col p {
+  line-height: 1.5;
+  color: var(--black);
 }
 
-.urgency-slider {
-    display: flex;
-    width: 300%;               /* 3 slides */
-    animation: slide 18s infinite;
-}
-
-.slide {
-    width: 33.333%;            /* each takes 1/3 of the total width */
-    flex-shrink: 0;
-}
-
-@keyframes slide {
-    0%    { transform: translateX(0); }
-    25%   { transform: translateX(0); }
-    33%   { transform: translateX(-33.333%); }
-    58%   { transform: translateX(-33.333%); }
-    66%   { transform: translateX(-66.666%); }
-    91%   { transform: translateX(-66.666%); }
-    100%  { transform: translateX(0); }
-}
-
-/* Fade edges (optional) */
-.urgency-strip::before,
-.urgency-strip::after {
-    content: '';
-    position: absolute;
-    top: 0; bottom: 0;
-    width: 60px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.urgency-strip::before { left: 0; background: linear-gradient(to right, var(--red-dark), transparent); }
-.urgency-strip::after  { right: 0; background: linear-gradient(to left, var(--red-dark), transparent); }
 
 
 /* Main grid section */
@@ -232,30 +267,29 @@ h1, h2, h3 {
 
 .intro { font-size: 1.05rem; margin-bottom: 32px; }
 
-.topics .topic {
-    margin-bottom: 28px;
-    font-size: 0.95rem;
-}
+    .split-image-col {
+        flex: 1;
+        /* Ensures the image column doesn't get too small */
+        min-width: 300px; 
+        max-width: 560px;
+        padding-top: 26px;
+    }
 
-.number {
-    display: inline-block;
-    color: var(--gold-dark);
-    line-height: 32px;
-    font-size: 1.3rem;
-    text-align: center;
-    font-weight: bold;
-    margin-right: 10px;
-}
+    .rounded-feature-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    border-radius: 30px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    }
 
 /* Form box */
 .form-box {
-    background: var(--beige);
-    padding: 32px 38px;
-    border-radius: 16px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.09)
+    padding: 22px 18px;
 }
 
-.form-box h3 { color: var(--black); margin-top: 0px; margin-bottom: 16px; font-size: 1.45rem; font-weight: 500; }
+.form-box h3 { color: var(--black); margin-top: 0px; margin-bottom: 16px; font-size: 1.45rem; font-weight: 500; text-align: center;}
 
 .form-box p { color: var(--red-dark); font-size: 0.9rem; }
 
@@ -295,6 +329,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 0.85rem;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .submit-btn {
@@ -323,6 +358,81 @@ input {
 }
 
 .dot.active { background: var(--red-light); }
+
+
+
+
+/* ACCREDITATIONS SECTION STYLES */
+.accreditations-section { padding: 20px 0px 80px 0px;  background: var(--white); text-align: center; }
+.accreditation-header h2 { margin-bottom: 20px; font-size: 1.8rem; font-weight: 500; }
+.accreditation-header p { max-width: 700px; margin: 0 auto 50px; }
+
+.logo-slider-wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 20px 0;
+}
+
+.fade-overlay-accred {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 150px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade-overlay-accred.left {
+    left: 0;
+    background: linear-gradient(to right, var(--white) 20%, transparent);
+}
+
+.fade-overlay-accred.right {
+    right: 0;
+    background: linear-gradient(to left, var(--white) 20%, transparent);
+}
+
+.logo-track {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    animation: scrollInfinite 43s linear infinite;
+    width: max-content;
+}
+
+.logo-track img {
+    height: 120px;
+    width: auto;
+    filter: grayscale(1);
+    opacity: 0.7;
+    transition: all 0.3s;
+}
+
+.logo-track img:hover { filter: grayscale(0); opacity: 1; }
+
+/* THE SCROLLING TRACK */
+.scroll-track {
+    display: flex;
+    width: calc(250px * 10); /* Ensure width is enough for content */
+}
+
+.scroll-content {
+    display: flex;
+    white-space: nowrap;
+    animation: scrollInfinite 30s linear infinite reverse;
+}
+
+.scroll-content span {
+    font-family: 'Styrene', sans-serif;
+    font-size: 1.65rem;
+    line-height: 3.2rem;
+    font-weight: 500;
+    color: var(--blue-mid);
+    padding: 0 50px;
+    text-transform: uppercase;
+}
+
+
 
 /* Stats */
 
@@ -372,8 +482,12 @@ input {
         flex-shrink: 0;
     }
 
+
+
+
+
 /* Speakers */
-.speakers { padding: 60px 0; background: white; }
+.speakers { padding: 60px 0px 130px; background: white; }
 
 .speakers h2 { font-size: 2.2rem; text-align: center; font-weight: 500; margin-bottom: 70px; }
 
@@ -403,97 +517,12 @@ input {
 
 .speaker-img { width: 100%; height: 100%; object-fit: contain; transform: scale(1.15); transition: transform 0.3s ease; }
 
-.photo-student { width: 100px; height: 170px; border-radius: 50px; background: linear-gradient(135deg, var(--red-light), var(--red-dark)); }
-
 .bio h3 { font-family: 'Styrene', 'Montserrat', sans-serif; font-weight: 500; font-size: 1.6rem; color: var(--red-light); margin: 0 0 8px; }
 
-.title { font-style: italic; font-weight: 600; margin: 0 0 16px; }
+.bio p { font-size: 0.95rem; }
 
-/* Testimonial */
-.student-quote-module {
-        padding: 90px 0 160px 0;
-        background-color: var(--white);
-    }
+.title { font-style: italic; font-weight: 600; margin: 0 0 18px; }
 
-    .quote-grid {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 40px;
-        gap: 50px;
-    }
-
-    /* 1. The Gradient Pill Container */
-    .quote-visual {
-        flex-shrink: 0;
-    }
-
-    .gradient-pill {
-        width: 160px;
-        height: 260px;
-        background: linear-gradient(180deg, var(--red-reg) 0%, var(--red-dark) 100%);
-        border-radius: 150px; /* Pill shape */
-        position: relative;
-        overflow: hidden; /* Clips the bottom of the image if needed */
-        display: flex;
-        align-items: flex-end;
-        justify-content: center;
-    }
-
-    .student-pill-img {
-        width: 150%;
-        height: auto;
-        object-fit: contain;
-        position: relative;
-        bottom: -10px;
-    }
-
-    /* 2. The Structural Vertical Line */
-    .quote-line-divider {
-        width: 8px;
-        height: 204px;
-        background-color: var(--red-light);
-        flex-shrink: 0;
-    }
-
-    /* 3. The Text Content */
-    .quote-content {
-        text-align: left;
-        max-width: 780px;
-    }
-
-    .main-quote-text {
-        font-size: clamp(1.7rem, 3.5vw, 2.2rem);
-        font-weight: 600;
-        line-height: 1.2;
-        color: var(--black);
-        margin: 0 0 25px 0;
-    }
-
-    .main-quote-text .accent {
-        color: var(--red-light);
-    }
-
-    .main-quote-text .accent-italic {
-        color: var(--red-light);
-        font-style: italic;
-    }
-
-    .quote-author-info {
-        font-family: 'Styrene','Montserrat', sans-serif;
-        font-weight: 700;
-        font-size: 0.9rem;
-        color: var(--red-light);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    .quote-author-info .author-role {
-        font-weight: 400;
-        text-transform: none;
-    }
 
 /* Sticky Footer */
 .sticky-footer {
@@ -537,42 +566,69 @@ input {
     transition: background-color 0.3s;
 }
 
-/* Mobile */
+
+
+/* Tablet and Mobile Refinements */
 @media (max-width: 992px) {
+
+  .hero-header {
+    text-align: center;
+    padding: 40px 30px 40px 30px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
     .grid-2 { grid-template-columns: 1fr; gap: 48px; }
     .speakers-grid { grid-template-columns: 1fr; }
-    .quote-box { flex-direction: column; text-align: center; }
+
+  .hero-text-area h1 {
+    font-size: 2.2rem; /* Scale down heading */
+  }
+
+  .hero-info-sidebar {
+    width: 100%;
+    min-width: unset;
+    padding-top: 20px;
+  }
+
+  .intro-grid {
+    grid-template-columns: 1fr; /* Stack the Strategic Pause section */
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .headline-col h2 {
+    font-size: 2rem;
+  }
 }
 
-       @media (max-width: 900px) {
-        .quote-grid {
-            flex-direction: column;
-            text-align: center;
-            gap: 34px;
-        }
+.info-item {
+    display: block;
+}
 
-        .quote-line-divider {
-            width: 80px;
-            height: 2px; /* Flips to horizontal on mobile */
-        }
+@media (max-width: 600px) {
+  /* Shrink countdown for very small screens */
+  .countdown-wrapper {
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping if screen is tiny */
+  }
 
-        .quote-content {
-            text-align: center;
-        }
+  .timer-unit .number {
+    font-size: 1.8rem;
+  }
 
-        .gradient-pill {
-            width: 140px;
-            height: 140px;
-        }
-       
-        .student-pill-img {
-        width: 130%;
-        height: auto;
-        object-fit: contain;
-        position: relative;
-        bottom: -55px;
-        }
-       }
+  .timer-unit .label {
+    font-size: 0.7rem;
+  }
+
+  .timer-divider {
+    display: none; /* Hide dividers to save space on mobile */
+  }
+}
 
     @media (max-width: 768px) {
         .stats-grid {
@@ -585,13 +641,18 @@ input {
         .stat-divider {
             display: none;
         }
+
+        .speakers {
+            padding: 60px 0px 190px;
+        }       
     }
 
+
+
 @media (max-width: 640px) {
-    .hero h1 { font-size: 2.6rem; }
-    .hero-cta { padding: 14px 32px; font-size: 1rem; }
-    .sticky-footer .container { flex-direction: column; text-align: center; }
+    .sticky-footer .container { flex-direction: column; text-align: center; gap: 5px; }
 }
 
-
-
+.register-btn {
+    margin-bottom: 20px;
+}
