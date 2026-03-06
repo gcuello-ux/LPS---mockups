@@ -295,6 +295,7 @@ input {
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 0.85rem;
+    font-family: 'Source Sans 3', sans-serif;
 }
 
 .submit-btn {
@@ -349,7 +350,7 @@ input {
 
     .stat-number, .stat-suffix {
         display: inline-block;
-        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        font-size: clamp(3.2rem, 5vw, 3.8rem);
         font-family: 'Styrene', 'Montserrat', sans-serif;
         font-weight: 800;
         color: var(--gold-mid);
