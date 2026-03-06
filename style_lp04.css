@@ -122,7 +122,7 @@ h1, h2, h3 {
 /* 1. HERO HEADER Styles */
 .hero-header {
   position: relative;
-  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/JPG/nature_bg.jpg');
+  background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/JPG/jacob_laptop.webp');
   background-size: cover;
   background-position: center;
   padding: 60px 0;
@@ -146,7 +146,7 @@ h1, h2, h3 {
 }
 
 .hero-text-area h1 {
-  font-size: 2.9rem;
+  font-size: 2.8rem;
   max-width: 780px;
   margin: 25px 0;
   line-height: 1.1;
@@ -689,6 +689,10 @@ input {
     font-size: 2.2rem; /* Scale down heading */
   }
 
+  .hero-text-area {
+    justify-content: center;
+  }
+
   .hero-info-sidebar {
     width: 100%;
     min-width: unset;
@@ -735,7 +739,7 @@ input {
             flex-wrap: wrap;
         }
         .stat-item {
-            flex: 0 0 50%;
+            flex: 0 0 40%;
             margin-bottom: 30px;
         }
         .stat-divider {

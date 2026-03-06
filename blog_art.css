@@ -1,0 +1,330 @@
+/* ==========================================
+   Custom Fonts — Styrene (local files)
+   ========================================== */
+
+/* Regular */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Regular.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Italic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Medium.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-MediumItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Bold.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-BoldItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+:root {
+    /* Blue Palette */
+    --blue-dark: #0D1B52; --blue-mid: #1B307B; --blue-reg: #2945A3; --blue-light: #375ACC;
+    /* Red Palette */
+    --red-dark: #5B000B; --red-mid: #770A17; --red-reg: #98151C; --red-light: #BA1F22;
+    /* Gold Palette */
+    --gold-dark: #E87205; --gold-mid: #FA8B1B; --gold-reg: #FDA002; --gold-light: #FFB829;
+    /* Support Palette */
+    --black: #000000; --grey-dark: #B9B9B9; --grey-light: #E6E6E6; --beige: #F5F1EF; --white: #FFFFFF;
+}
+
+/* ==========================================
+   Base Styles
+   ========================================== */
+body {
+    font-family: 'Styrene', sans-serif;
+    color: var(--black);
+    background-color: var(--white);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-red { color: var(--red-light); font-style: italic; font-weight: 500; }
+.bg-beige { background-color: var(--beige); }
+.text-center { text-align: center; }
+
+/* ==========================================
+   1. Header & Intro
+   ========================================== */
+.article-header {
+    padding: 60px 20px 30px; 
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--grey-dark);
+    text-decoration: none;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: var(--red-reg);
+}
+
+.header-content-inner {
+    max-width: 850px; 
+}
+
+.meta-top {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--red-light);
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.article-header h1 {
+    font-size: 2.8rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin: 0 0 20px 0;
+    color: var(--black);
+}
+
+.intro-text p {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.15rem;
+    color: #444;
+    max-width: 900px; /* Keeps the intro readable without stretching too far */
+}
+
+/* ==========================================
+   2. Main Banner Image
+   ========================================== */
+.article-banner {
+    margin-bottom: 40px;
+}
+
+.banner-img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px; /* Matches the rounded corners in the draft */
+    object-fit: cover;
+    display: block;
+    max-height: 450px;
+}
+
+/* ==========================================
+   3. Article Grid & Main Content
+   ========================================== */
+.article-grid {
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* Exact ratio from your draft */
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.article-content h3 {
+    font-size: 1.5rem;
+    margin: 40px 0 15px;
+    line-height: 1.3;
+}
+
+.article-content p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+/* Pull Quote */
+.pull-quote {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-left: 3px solid var(--red-reg);
+    padding: 20px 0 20px 30px;
+    margin: 40px 0;
+}
+
+.quote-avatar {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.quote-text p {
+    font-style: italic;
+    font-size: 1.15rem;
+    margin-bottom: 10px;
+}
+
+.quote-text cite {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--grey-dark);
+    font-style: normal;
+}
+
+/* Image Placeholder */
+.image-placeholder {
+    width: 100%;
+    height: 300px;
+    background-color: var(--grey-light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--grey-dark);
+    font-weight: 700;
+    margin: 30px 0;
+}
+
+/* ==========================================
+   4. Sidebar (More Like This)
+   ========================================== */
+.sticky-wrapper {
+    position: sticky;
+    top: 40px; /* Stays in view when scrolling past */
+}
+
+.sidebar-title {
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+}
+
+.related-post {
+    display: flex;
+    gap: 15px;
+    text-decoration: none;
+    color: var(--black);
+    margin-bottom: 25px;
+    align-items: flex-start;
+    transition: opacity 0.2s;
+}
+
+.related-post:hover { opacity: 0.7; }
+
+.related-post img {
+    width: 100px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.related-info h5 {
+    font-family: 'Source Sans 3', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+}
+
+.related-info .date {
+    font-size: 0.75rem;
+    color: var(--grey-dark);
+}
+
+/* ==========================================
+   5. Full Width CTA (Bottom)
+   ========================================== */
+.full-width-cta {
+    padding: 60px 0;
+    width: 100%;
+}
+
+.full-width-cta h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.full-width-cta p {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+}
+
+.btn-outline-red {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 2px solid var(--red-reg);
+    color: var(--red-reg);
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-red:hover {
+    background-color: var(--red-reg);
+    color: var(--white);
+}
+
+/* ==========================================
+   Mobile Optimization
+   ========================================== */
+@media (max-width: 992px) {
+    .article-grid {
+        grid-template-columns: 1fr; /* Stacks sidebar under article */
+        gap: 50px;
+    }
+    
+    .article-header h1 {
+        font-size: 2.2rem;
+    }
+
+    .pull-quote {
+        flex-direction: column; /* Stack image and text on small screens */
+        align-items: flex-start;
+        padding-left: 20px;
+    }
+}

@@ -580,19 +580,28 @@ input {
             flex-wrap: wrap;
         }
         .stat-item {
-            flex: 0 0 50%;
+            flex: 0 0 40%;
             margin-bottom: 30px;
         }
         .stat-divider {
             display: none;
+        }
+
+        .hero-top {
+        display: block;
+        margin-bottom: 30px;
+        }
+
+        .event-meta {
+        margin-top: 30px;
         }
     }
 
 @media (max-width: 640px) {
     .hero h1 { font-size: 2.6rem; }
     .hero-cta { padding: 14px 32px; font-size: 1rem; }
-    .sticky-footer .container { flex-direction: column; text-align: center; }
+    .sticky-footer .container { flex-direction: column; text-align: center; gap: 5px; }
+    .register-btn { margin-bottom: 20px; }
+    .student-quote-module { padding: 90px 0 200px 0;}
 }
-
-
 
