@@ -276,6 +276,8 @@ h1, h2, h3 {
 
 .left-column h2 { font-size: 2.2rem; line-height: 1.15; margin-bottom: 24px; color: var(--black); font-weight: 500; }
 
+.left-column { width: 100%; display: flex; justify-content: center; align-items: center;}
+
 .intro { font-size: 1.05rem; margin-bottom: 32px; }
 
     .split-image-col {
@@ -686,12 +688,10 @@ input {
     .speakers-grid { grid-template-columns: 1fr; }
 
   .hero-text-area h1 {
-    font-size: 2.2rem; /* Scale down heading */
+    font-size: 2.4rem; /* Scale down heading */
   }
 
-  .hero-text-area {
-    justify-content: center;
-  }
+  .hero-text-area { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; }
 
   .hero-info-sidebar {
     width: 100%;
@@ -708,11 +708,18 @@ input {
   .headline-col h2 {
     font-size: 2rem;
   }
+
+  .form-image {
+    padding: 80px 0 40px 0;
+}
+
 }
 
 .info-item {
     display: block;
 }
+
+
 
 @media (max-width: 600px) {
   /* Shrink countdown for very small screens */

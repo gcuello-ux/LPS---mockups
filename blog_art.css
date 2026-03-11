@@ -300,7 +300,7 @@ body {
 .related-post:hover { opacity: 0.7; }
 
 .related-post img {
-    width: 110px;
+    width: 120px;
     height: auto;
     border-radius: 8px;
     object-fit: cover;

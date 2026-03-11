@@ -44,22 +44,22 @@
   <section class="urgency-banner">
     <div class="container countdown-wrapper">
       <div class="timer-unit">
-        <span class="number">06</span>
+        <span class="number" id="cd-days">00</span>
         <span class="label">Days</span>
       </div>
       <div class="timer-divider"></div>
       <div class="timer-unit">
-        <span class="number">23</span>
+        <span class="number" id="cd-hours">00</span>
         <span class="label">Hours</span>
       </div>
       <div class="timer-divider"></div>
       <div class="timer-unit">
-        <span class="number">54</span>
+        <span class="number" id="cd-minutes">00</span>
         <span class="label">Min</span>
       </div>
       <div class="timer-divider"></div>
       <div class="timer-unit">
-        <span class="number">46</span>
+        <span class="number" id="cd-seconds">00</span>
         <span class="label">Sec</span>
       </div>
     </div>
@@ -296,31 +296,42 @@
     <script src="script_lp02.js"></script>
 
 <script>
-// Set the date we're counting down to
-const eventDate = new Date("Sep 25, 2026 20:00:00").getTime();
+    document.addEventListener("DOMContentLoaded", function() {
+        // Set the date we're counting down to (Format: "Month DD, YYYY HH:MM:SS")
+        // Example: "Sep 25, 2026 20:00:00"
+        const targetDate = new Date("Sep 25, 2026 20:00:00").getTime();
 
-const countdownLogic = setInterval(function() {
-  const now = new Date().getTime();
-  const distance = eventDate - now;
+        // Update the countdown every 1 second
+        const countdownInterval = setInterval(function() {
 
-  // Time calculations for days, hours, minutes and seconds
-  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            // Get today's date and time
+            const now = new Date().getTime();
 
-  // Output the result in the elements with id="timer-..."
-  document.getElementById("timer-days").innerHTML = days.toString().padStart(2, '0');
-  document.getElementById("timer-hours").innerHTML = hours.toString().padStart(2, '0');
-  document.getElementById("timer-min").innerHTML = minutes.toString().padStart(2, '0');
-  document.getElementById("timer-sec").innerHTML = seconds.toString().padStart(2, '0');
+            // Find the distance between now and the countdown date
+            const distance = targetDate - now;
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(countdownLogic);
-    document.querySelector(".countdown-wrapper").innerHTML = "EVENT HAS STARTED";
-  }
-}, 1000);
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Function to add a leading zero to single-digit numbers (e.g., "06" instead of "6")
+            const formatTime = (time) => time < 10 ? `0${time}` : time;
+
+            // Display the results in the corresponding elements
+            document.getElementById("cd-days").innerText = formatTime(days);
+            document.getElementById("cd-hours").innerText = formatTime(hours);
+            document.getElementById("cd-minutes").innerText = formatTime(minutes);
+            document.getElementById("cd-seconds").innerText = formatTime(seconds);
+
+            // If the countdown is finished, clear the interval and display a message (Optional)
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                document.getElementById("webinar-countdown").innerHTML = "<span>THE WEBINAR HAS STARTED!</span>";
+            }
+        }, 1000);
+    });
 </script>
 
 </main>
