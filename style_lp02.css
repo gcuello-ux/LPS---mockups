@@ -135,8 +135,9 @@ h1, h2, h3 {
     text-transform: uppercase;
     padding: 6px 16px;
     border-radius: 50px;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     letter-spacing: 1px;
+    font-family: 'Styrene', 'Montserrat', sans-serif;
 }
 
 .event-meta span {
@@ -576,12 +577,15 @@ input {
        }
 
     @media (max-width: 768px) {
+        .stats-module {
+            padding: 50px 0 0 0;
+        }
         .stats-grid {
             flex-wrap: wrap;
         }
         .stat-item {
             flex: 0 0 40%;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
         }
         .stat-divider {
             display: none;

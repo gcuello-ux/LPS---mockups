@@ -742,12 +742,15 @@ input {
 }
 
     @media (max-width: 768px) {
+        .stats-module {
+            padding: 50px 0 0 0;
+        }
         .stats-grid {
             flex-wrap: wrap;
         }
         .stat-item {
             flex: 0 0 40%;
-            margin-bottom: 30px;
+            margin-bottom: 60px;
         }
         .stat-divider {
             display: none;

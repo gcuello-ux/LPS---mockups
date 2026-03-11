@@ -100,7 +100,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1180px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -413,10 +413,18 @@ input {
 
 .logo-placeholder {
     width: 100px;
-    height: 78px;
-    background-color: #B9B9B9;
+    height: 76px;
+    background-color: transparent;
     border-radius: 5px;
 }
+
+.logo-placeholder img
+ {
+    width: 100px;
+    height: auto;
+}
+
+
 
 /* Speakers Section */
 .speakers {
@@ -480,70 +488,6 @@ input {
     color: #000000;
     margin: 0 0 16px;
     font-style: italic;
-}
-
-/* Mobile – keep stacked layout */
-@media (max-width: 992px) {
-    .speakers .container {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-    }
-
-    .speakers-header {
-        max-width: 100%;
-        text-align: center;
-        flex: 0 0 140px;
-    }
-
-    .speakers-header h2 {
-        font-size: 2.8rem;
-        text-align: center !important;
-    }
-
-    .speaker-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 24px;
-    }
-
-    .photo-placeholder {
-        margin-bottom: 16px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .speakers-header {
-    flex: 0 0 140px;
-    }
-
-    .speakers-header h2 {
-        font-size: 2.4rem;
-        text-align: center;
-    }
-
-    .speaker-card {
-        padding: 20px;
-    }
-
-    .photo-placeholder {
-        width: 140px;
-        height: 140px;
-    }
-
-    .event-info {
-        gap: 20px;
-        font-size: 1rem;
-        flex-direction: column;   /* optional: stack vertically on tiny screens */
-        align-items: center;
-    }
-
-    .event-info .date::after,
-    .event-info .time::after {
-        display: none;           /* or change to horizontal if you prefer */
-    }
 }
 
    /* RESOURCES SECTION SPECIFIC STYLES */
@@ -612,14 +556,27 @@ input {
 
 
 /* Sticky Footer */
+
+.sticky-footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.sticky-footer .container p {
+    font-size: 1.3rem;
+}
+
 .sticky-footer {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(135deg, #BA1F22, #5B000B);
+    background: linear-gradient(135deg, var(--red-light), var(--red-dark));
     color: #FFFFFF;
-    padding: 20px 0;
+    padding: 5px 0;
     text-align: center;
     z-index: 1000;
 
@@ -636,9 +593,7 @@ input {
 }
 
 .sticky-footer p {
-    margin: 0 40px 0 0;
     display: inline-block;
-    font-size: 20px;
 }
 
 .register-btn {
@@ -658,24 +613,47 @@ input {
     opacity: 0.85;
 }
 
-/* Only force stacking on small phones */
-@media (max-width: 640px) {
-    .sticky-footer .container {
+/* Mobile – keep stacked layout */
+@media (max-width: 900px) {
+    
+    .resources-container {
+        grid-template-columns: 1fr;
+        gap: 36px;
+    }
+
+    .resources-list {
+        gap: 36px;
+    }
+
+    .speakers .container {
         flex-direction: column;
-        gap: 16px;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .speakers-header {
+        max-width: 100%;
         text-align: center;
+        flex: 0 0 140px;
     }
 
-    .sticky-footer p {
-        font-size: 1.1rem;
-        margin: 0 0 20px;
+    .speakers-header h2 {
+        font-size: 2.8rem;
+        text-align: center !important;
     }
 
-    .register-btn {
-        padding: 10px 24px;
-        margin: 0 20px 0 20px;
+    .speaker-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 24px;
+    }
+
+    .photo-placeholder {
+        margin-bottom: 16px;
     }
 }
+
 
 /* Animations */
 @keyframes fadeIn {
@@ -719,19 +697,49 @@ input {
     .logos {
         gap: 10px;
     }
-/*
-    .sticky-footer {
-        padding: 10px 0;
-    }
 
-    .sticky-footer p {
-        font-size: 18px;
-        margin: 0 0 10px 0;
-        display: block;
-    }
-
+    /* Only force stacking on small phones */
+@media (max-width: 670px) {
     .sticky-footer .container {
-        display: flex;
         flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+
+    .register-btn {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 580px) {
+
+    .speakers-header {
+    flex: 0 0 140px;
+    }
+
+    .speakers-header h2 {
+        font-size: 2.4rem;
+        text-align: center;
+    }
+
+    .speaker-card {
+        padding: 20px;
+    }
+
+    .photo-placeholder {
+        width: 140px;
+        height: 140px;
+    }
+
+    .event-info {
+        gap: 20px;
+        font-size: 1rem;
+        flex-direction: column;   /* optional: stack vertically on tiny screens */
         align-items: center;
     }
+
+    .event-info .date::after,
+    .event-info .time::after {
+        display: none;           /* or change to horizontal if you prefer */
+    }
+}
