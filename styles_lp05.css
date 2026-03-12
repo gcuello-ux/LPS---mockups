@@ -176,7 +176,7 @@ p { font-style: normal; }
 
 .niche-module {
     background-color: var(--beige); /* Assumes #F5EFEB from your previous modules */
-    padding: 60px 20px;
+    padding: 40px 20px 60px 20px;
     display: flex;
     justify-content: center;
 }
