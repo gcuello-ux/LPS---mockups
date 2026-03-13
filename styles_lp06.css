@@ -1,0 +1,23 @@
+    /* FOOTER STYLES */
+    .main-footer {
+        width: 100%;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        background: linear-gradient(135deg, #BA1F22 0%, #5B000B 100%);
+        color: white;
+        padding: 80px 0 40px 0;
+    }
+
+    /* This keeps the text centered and constrained while the background bleeds out */
+    .footer-inner-content {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: 60px;
+    }

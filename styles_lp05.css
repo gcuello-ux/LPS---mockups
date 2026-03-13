@@ -188,9 +188,11 @@ p { font-style: normal; }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 46px;
-    max-width: 1200px;
+    max-width: 1200px; /* Limits width on ultrawide screens */
+    width: 95%;        /* Allows it to shrink on smaller desktops */
     margin: 0 auto;
+    padding: 20px 40px;
+    gap: 20px;         /* Adds a minimum gap between sections */
     box-shadow: 0 10px 20px rgba(42, 42, 42, 0.2);
     font-family: 'Styrene';
     font-style: normal;
@@ -200,6 +202,7 @@ p { font-style: normal; }
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
 
 /* Class added by JS to trigger animation */
 .niche-card.is-visible {
@@ -380,7 +383,7 @@ p { font-style: normal; }
     font-size: 1rem;
     font-weight: 500;
     color: #5b000b;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     text-align: center;   
 }
 
@@ -783,69 +786,110 @@ input {
 /* ==========================================
    Mobile Optimization
    ========================================== */
-
-@media (max-width: 992px) {
+@media (min-width: 993px) and (max-width: 1200px) {
     .niche-card {
-        gap: 30px;
-        padding-top: 25px;
-        padding: 16px 40px 40px 40px;
-        flex-direction: column;
+        padding: 15px 25px;
+        gap: 15px;
     }
     
     .niche-stats-compact {
+        gap: 15px;
+    }
+
+    /* Shrink the text slightly to save space */
+    .review-slide p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .niche-badge {
+        width: 100px; /* Smaller badge for small desktops */
+    }
+}
+
+@media (max-width: 992px) {
+
+    .hero h1 {
+    font-size: 2.4rem; /* Scale down heading */
+     }
+
+/* 1. Add extra top padding to the main section so the pop-out badge clears the button above it */
+    .niche-module {
+        padding-top: 80px; 
+        padding-bottom: 60px;
+    }
+
+    /* 2. Force the card into a vertical stack and center everything */
+    .niche-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 30px 40px 30px; 
+        gap: 25px;
+    }
+
+    /* 3. Adjust the badge size and overlap distance for smaller screens */
+    .niche-badge {
+        margin-top: -55px;
+        width: 120px;
+    }
+
+    /* 4. Keep stats side-by-side but center them, and add a horizontal bottom divider */
+    .niche-stats-compact {
         width: 100%;
-        justify-content: space-around;
-        gap: 20px;
+        justify-content: center;
+        gap: 60px; /* Breathing room between A+ and 4.8 */
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(102, 107, 115, 0.2); /* Creates a clean horizontal line */
+    }
+
+    .desktop-only {
+        display: none !important;
+    }
+
+    /* 5. Center the carousel header and the quote text */
+    .carousel-top-bar {
+        flex-direction: column; /* Stacks the stars above the arrows */
+        gap: 15px;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    .review-slide {
+        padding-right: 0;
+        text-align: center; /* Centers the review paragraph */
+    }
+    
+    .review-slide p {
+        font-size: 0.9rem;
     }
 
     .desktop-only {
         display: none;
     }
 
-    .niche-divider {
-        height: 1px;
-        width: 100%;
-        background: linear-gradient(to right, rgba(102, 107, 115, 0) 0%, rgba(102, 107, 115, 0.3) 50%, rgba(102, 107, 115, 0) 100%);
-        margin: 10px 0;
-        display: block; /* Show horizontal divider on mobile */
+
+    .agenda-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
     }
 
-    .review-slide p {
-        font-size: 0.9rem;
-    }
-
-    /*.niche-card {
-        flex-direction: column;
-        padding: 16px 40px 40px 40px;
-        gap: 20px;
-    } */
-
-    .niche-badge {
-        width: 120px;
-    }
-
-    /* Change to a CSS Grid for tablet/mobile to keep it tidy */
-    .niche-stats {
-        display: grid;
-        grid-template-columns: 1fr 1fr; 
-        gap: 36px 30px;
-    }
-
-    /* Center the last item across full width if there's an odd number */
-    .niche-stat-block:last-child {
-        grid-column: 1 / -1;
-    }
-
-    /* Hide the vertical dividers on mobile since we are using a grid */
-    .niche-divider {
-        display: none; 
-    }
-
-    .niche-grade {
+    .agenda-header h2 {
         font-size: 2.2rem;
+    }
+
+    .agenda-item h3 {
+    margin-top: 10px;
+    }
+    
+    .item-number {
+    margin-bottom: 10px;
     }
 }
 
     @media (max-width: 768px) {
         .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+        .agenda-items { grid-template-columns: 1fr; gap: 30px; }
     }

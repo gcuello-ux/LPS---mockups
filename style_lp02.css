@@ -585,7 +585,7 @@ input {
         }
         .stat-item {
             flex: 0 0 40%;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
         .stat-divider {
             display: none;

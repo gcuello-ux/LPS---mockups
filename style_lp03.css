@@ -272,6 +272,8 @@ p { font-style: normal; }
 /* Main grid section */
 .main-content { padding: 80px 0; }
 
+.left-column { width: 100%; display: flex; justify-content: center; align-items: center; }
+
 .left-column h2 { font-size: 2.2rem; line-height: 1.15; margin-bottom: 24px; color: var(--black); font-weight: 500; }
 
 .intro { font-size: 1.05rem; margin-bottom: 32px; }
@@ -651,51 +653,6 @@ input {
     background-color: var(--red-reg);
 }
 
-/* ==========================================
-   Mobile Optimization
-   ========================================== */
-@media (max-width: 900px) {
-    .carousel-wrapper {
-        gap: 10px;
-    }
-    
-    .active-card {
-        width: 300px;
-        height: 300px;
-        margin: 0 -20px;
-    }
-
-    .side-card {
-        width: 220px;
-        height: 220px;
-    }
-}
-
-@media (max-width: 600px) {
-    /* Hide side cards on small mobile screens to prevent cramming */
-    .side-card {
-        display: none; 
-    }
-    
-    .active-card {
-        margin: 0;
-        width: 100%;
-        max-width: 340px;
-        height: 340px;
-    }
-
-    .carousel-btn {
-        font-size: 2rem;
-    }
-    
-    .intro-paragraph {
-        padding: 0 20px;
-    }
-}
-
-
-
-
 
 /* Sticky Footer */
 .sticky-footer {
@@ -739,10 +696,21 @@ input {
     transition: background-color 0.3s;
 }
 
-/* Mobile */
+
+/* ==========================================
+   Mobile Optimization
+   ========================================== */
+
+@media (max-width: 1000px) {
+    .carousel-wrapper {
+        gap: 10px;
+    }
+
+}
+
 @media (max-width: 992px) {
     .grid-2 { grid-template-columns: 1fr; gap: 48px; }
-    .container.grid-2 { display: flex; flex-direction: column; align-items: center; }
+    .container.grid-2 { flex-direction: column; align-items: center; }
     .quote-box { flex-direction: column; text-align: center; }
     .left-column-hero { align-items: center; }
     .right-column-hero { width: 100%; display: flex; justify-content: center; align-items: center; } 
@@ -753,9 +721,23 @@ input {
     .grid-2 i{ max-width: 680px; align-items: center; }
 }
 
-       @media (max-width: 900px) {
-      
-       }
+@media (max-width: 900px) {
+    .carousel-wrapper {
+        gap: 10px;
+    }
+    
+    .active-card {
+        width: 300px;
+        height: 300px;
+        margin: 0 -20px;
+    }
+
+    .side-card {
+        width: 220px;
+        height: 220px;
+    }
+
+}
 
     @media (max-width: 768px) {
         .stats-grid {
@@ -779,6 +761,7 @@ input {
         }
     }
 
+
 @media (max-width: 640px) {
     .hero h1 { font-size: 2.6rem; }
     .hero-cta { padding: 14px 32px; font-size: 1rem; }
@@ -787,4 +770,25 @@ input {
 }
 
 
+@media (max-width: 600px) {
+    /* Hide side cards on small mobile screens to prevent cramming */
+    .side-card {
+        display: none; 
+    }
+    
+    .active-card {
+        margin: 0;
+        width: 100%;
+        max-width: 340px;
+        height: 340px;
+    }
+
+    .carousel-btn {
+        font-size: 2rem;
+    }
+    
+    .intro-paragraph {
+        padding: 0 20px;
+    }
+}
 
