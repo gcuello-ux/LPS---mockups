@@ -610,7 +610,7 @@ input {
     .register-btn { margin-bottom: 20px; }
     .left-column h2 { font-size: 2rem; line-height: 1.15; }
     .student-quote-module { padding: 90px 0 200px 0;}
-    .event-meta span { margin: 0 10px 0 0px; font-size: 0.9rem; }
+    .event-meta span { margin: 0 14px 0 0px; font-size: 0.85rem; } 
     .event-meta i { margin-right: 6px; }
     .subtitle { font-size: 1.1rem; }
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; }
