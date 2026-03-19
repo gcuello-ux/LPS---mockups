@@ -909,5 +909,5 @@ input {
         .niche-grade { font-size: 2.4rem; }
         .section-title { font-size: 2rem; }
         .full-width-cta h2 { font-size: 2rem; }
-        .student-grid { grid-template-columns: 1fr;  max-width: 300px; gap: 30px;}
+        .student-grid { grid-template-columns: 1fr;  max-width: 300px; gap: 40px;}
         }
