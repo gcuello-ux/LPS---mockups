@@ -711,7 +711,7 @@ input {
         margin-bottom: 20px;
     }
 
-    .event-info span { margin: 0 10px; font-size: 0.9rem; }
+    .event-info span { font-size: 0.9rem; }
     .event-info { flex-direction: row; gap: 14px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 40px; }
     .event-info i { margin-right: 8px; }
 
