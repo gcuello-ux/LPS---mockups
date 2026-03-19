@@ -709,7 +709,7 @@ input {
 
 .full-width-cta h2 {
     font-size: 2.2rem;
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     font-weight: 500;
 }
 
@@ -731,7 +731,7 @@ input {
     border-radius: 50px;
     text-decoration: none;
     font-family: 'Styrene', 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 0.9rem;
     transition: all 0.3s ease;
     text-transform: uppercase;
@@ -895,13 +895,18 @@ input {
 
     @media (max-width: 600px) {
         .hero { padding: 40px 0 60px 0;}
+        .hero h1 { font-size: 2.15rem;  margin: 0 0 30px; }
         .hero p { font-size: 0.95rem; }
+        .hero-cta { font-size: 0.9rem; }
+        .agenda-header h2 { font-size: 2rem; }
         .agenda-items { grid-template-columns: 1fr; gap: 30px; }
         .niche-carousel-container { display: none; }
         .niche-stats-compact { border-bottom: 0; gap: 40px; padding-bottom: 0px; }
-        .niche-module {  padding-top: 0; padding-bottom: 60px; }
+        .niche-module {  padding: 0; padding-bottom: 60px;  }
         .niche-card { width: auto; padding: 12px 30px 20px 24px; gap: 0px;}
-        .niche-badge { margin-top: 0px; width: 80px; }
-        .niche-label { font-size: 0.6rem; line-height: 1.1; }
+        .niche-badge { margin-top: 0px; width: 70px; }
+        .niche-label { font-size: 0.6rem; line-height: 1.1; letter-spacing: 0; }
         .niche-grade { font-size: 2.4rem; }
+        .section-title { font-size: 2rem; }
+        .full-width-cta h2 { font-size: 2rem; }
         }
