@@ -731,7 +731,7 @@ input {
     } */
   /* Shrink countdown for very small screens */
   .countdown-wrapper {
-    gap: 15px;
+    gap: 18px;
     flex-wrap: wrap; /* Allow wrapping if screen is tiny */
   }
 
@@ -741,7 +741,7 @@ input {
 }
 
   .timer-unit .number {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .timer-unit .label {
@@ -853,4 +853,6 @@ input {
 @media (max-width: 640px) {
     .sticky-footer .container { flex-direction: column; text-align: center; gap: 5px; }
     .register-btn { margin-bottom: 20px;}
+    .timer-unit { gap: 6px; }
+    .hero-info-sidebar { padding: 20px 0px 20px 0px; }
 }
