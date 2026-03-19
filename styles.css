@@ -710,6 +710,11 @@ input {
     .register-btn {
         margin-bottom: 20px;
     }
+
+    .event-info span { margin: 0 10px; font-size: 0.9rem; }
+    .event-info { flex-direction: row; gap: 14px; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-top: 40px; }
+    .event-info i { margin-right: 8px; }
+
 }
 
 @media (max-width: 580px) {
@@ -732,15 +737,15 @@ input {
         height: 140px;
     }
 
-    .event-info {
+    /*.event-info {
         gap: 20px;
         font-size: 1rem;
         flex-direction: column;   /* optional: stack vertically on tiny screens */
-        align-items: center;
-    }
+    /*    align-items: center;
+    } */
 
-    .event-info .date::after,
+    /* .event-info .date::after,
     .event-info .time::after {
         display: none;           /* or change to horizontal if you prefer */
-    }
+    /*} */
 }
