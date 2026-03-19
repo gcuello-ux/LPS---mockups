@@ -895,6 +895,7 @@ input {
 
     @media (max-width: 600px) {
         .hero { padding: 40px 0 60px 0;}
+        .hero p { font-size: 0.95rem; }
         .agenda-items { grid-template-columns: 1fr; gap: 30px; }
         .niche-carousel-container { display: none; }
         .niche-stats-compact { border-bottom: 0; gap: 40px; padding-bottom: 0px; }
