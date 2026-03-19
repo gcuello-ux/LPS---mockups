@@ -790,5 +790,9 @@ input {
     .intro-paragraph {
         padding: 0 20px;
     }
+
+    .label-gold {
+        text-align: center;
+    }
 }
 

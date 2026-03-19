@@ -121,7 +121,7 @@ p { font-style: normal; }
 .hero {
     background-color: var(--beige);
     text-align: center;
-    padding: 60px 0;
+    padding: 60px 0 40px 0;
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -191,7 +191,6 @@ p { font-style: normal; }
     max-width: 1200px; /* Limits width on ultrawide screens */
     width: 95%;        /* Allows it to shrink on smaller desktops */
     margin: 0 auto;
-    padding: 20px 40px;
     gap: 20px;         /* Adds a minimum gap between sections */
     box-shadow: 0 10px 20px rgba(42, 42, 42, 0.2);
     font-family: 'Styrene';
@@ -815,32 +814,35 @@ input {
 
 /* 1. Add extra top padding to the main section so the pop-out badge clears the button above it */
     .niche-module {
-        padding-top: 80px; 
+        padding-top: 20px;
         padding-bottom: 60px;
     }
 
     /* 2. Force the card into a vertical stack and center everything */
     .niche-card {
-        flex-direction: column;
+    /*    flex-direction: column;
         align-items: center;
-        padding: 0 30px 40px 30px; 
-        gap: 25px;
+        padding: 0 30px 40px 30px;  */
+        width: auto;
+        gap: 0px;
     }
 
     /* 3. Adjust the badge size and overlap distance for smaller screens */
     .niche-badge {
-        margin-top: -55px;
+        margin-top: -35px;
         width: 120px;
+        margin-right: 40px;
     }
 
     /* 4. Keep stats side-by-side but center them, and add a horizontal bottom divider */
     .niche-stats-compact {
-        width: 100%;
+        width: auto;
         justify-content: center;
         gap: 60px; /* Breathing room between A+ and 4.8 */
-        padding-bottom: 30px;
-        border-bottom: 1px solid rgba(102, 107, 115, 0.2); /* Creates a clean horizontal line */
+        padding-bottom: 10px;
+        /*  border-bottom: 1px solid rgba(102, 107, 115, 0.2); Creates a clean horizontal line */
     }
+    .niche-carousel-container { display: none; }
 
     .desktop-only {
         display: none !important;
@@ -888,8 +890,17 @@ input {
 
     @media (max-width: 768px) {
         .footer-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+
     }
 
     @media (max-width: 600px) {
+        .hero { padding: 40px 0 60px 0;}
         .agenda-items { grid-template-columns: 1fr; gap: 30px; }
-    }
+        .niche-carousel-container { display: none; }
+        .niche-stats-compact { border-bottom: 0; gap: 40px; padding-bottom: 0px; }
+        .niche-module {  padding-top: 0; padding-bottom: 60px; }
+        .niche-card { width: auto; padding: 12px 30px 20px 24px; gap: 0px;}
+        .niche-badge { margin-top: 0px; width: 80px; }
+        .niche-label { font-size: 0.6rem; line-height: 1.1; }
+        .niche-grade { font-size: 2.4rem; }
+        }
