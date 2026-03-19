@@ -719,6 +719,8 @@ input {
 
 @media (max-width: 580px) {
 
+    .hero { padding: 40px 0 60px 0; }
+
     .speakers-header {
     flex: 0 0 140px;
     }
