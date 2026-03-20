@@ -898,8 +898,13 @@ input {
         .hero h1 { font-size: 2.15rem;  margin: 0 0 30px; }
         .hero p { font-size: 0.95rem; }
         .hero-cta { font-size: 0.9rem; }
-        .agenda-header h2 { font-size: 2rem; }
-        .agenda-items { grid-template-columns: 1fr; gap: 30px; }
+        .agenda-grid { grid-template-columns: 1fr; }
+        .agenda-header h2 { font-size: 2rem; margin: 20px 0; }
+        .agenda-items { grid-template-columns: 1fr; gap: 20px; }
+        .agenda-item { display: grid; grid-template-columns: auto 1fr; column-gap: 20px; row-gap: 8px; align-items: start; margin-bottom: 20px; }
+        .item-number { grid-column: 1; grid-row: 1; margin: 0;  line-height: 1.2; font-weight: 800; }
+        .agenda-item h3 { grid-column: 2; grid-row: 1; margin: 0; }
+        .agenda-item p { grid-column: 2; grid-row: 2; margin: 0; }
         .niche-carousel-container { display: none; }
         .niche-stats-compact { border-bottom: 0; gap: 40px; padding-bottom: 0px; }
         .niche-module {  padding: 0; padding-bottom: 60px;  }
@@ -909,5 +914,7 @@ input {
         .niche-grade { font-size: 2.4rem; }
         .section-title { font-size: 2rem; }
         .full-width-cta h2 { font-size: 2rem; }
+        .agenda-module { padding: 40px 20px 40px 20px; }
         .student-grid { grid-template-columns: 1fr;  max-width: 300px; gap: 40px;}
+        .student-module { padding: 20px 20px 80px 20px; }
         }
