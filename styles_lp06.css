@@ -1,3 +1,229 @@
+  /* ==========================================
+   Custom Fonts — Styrene (local files)
+   ========================================== */
+
+/* Regular */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Regular.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Italic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Italic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Medium.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Medium Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-MediumItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-Bold.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Bold Italic*/
+@font-face {
+    font-family: 'Styrene';
+    src: url('fonts/StyreneAWeb-BoldItalic.woff2') format('woff2'),
+         url('fonts/StyreneAWeb-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* style_lp06.css */
+
+            :root {
+            /* Blue Palette */
+            --blue-dark: #0D1B52;
+            --blue-mid: #1B307B;
+            --blue-reg: #2945A3;
+            --blue-light: #375ACC;
+            
+            /* Red Palette */
+            --red-dark: #5B000B;
+            --red-mid: #770A17;
+            --red-reg: #98151C;
+            --red-light: #BA1F22;
+
+            /* Gold Palette */
+            --gold-dark: #E87205;
+            --gold-mid: #FA8B1B;
+            --gold-reg: #FDA002;
+            --gold-light: #FFB829;
+
+            /* Support Palette */
+            --black: #000000;
+            --grey-dark: #939393;
+            --grey-light: #E6E6E6;
+            --beige: #F5F1EF;
+            --white: #FFFFFF;
+        }
+
+body {
+    margin: 0;
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--black);
+    line-height: 1.5;
+    background: white;
+
+}
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+}
+
+p { font-style: normal; }  
+
+
+        /* Module Container */
+        .admissions-module {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .admissions-module h2 {
+            font-size: 36px;
+            color: #000000;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .admissions-module h2 span {
+            color: #98151C;
+            font-style: italic;
+        }
+
+    /* TABLE STYLES */
+        /* Table Wrapper for Fade & Scroll */
+        .table-outer-wrapper {
+            position: relative;
+            padding-right: 15px; /* Room for the custom scrollbar */
+        }
+
+        .table-scroll-container {
+            max-height: 420px; /* Adjust this to show more/less rows before scrolling */
+            overflow-y: auto;
+            overflow-x: auto; /* Allows horizontal swipe on mobile */
+            padding-bottom: 20px;
+        }
+
+        /* Custom Scrollbar Styling */
+        .table-scroll-container::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .table-scroll-container::-webkit-scrollbar-track {
+            background: #F5F1EF;
+            border-radius: 10px;
+        }
+        .table-scroll-container::-webkit-scrollbar-thumb {
+            background: #D6C3BE; 
+            border-radius: 10px;
+        }
+
+        /* The Fade Effect */
+        .scroll-fade {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+            pointer-events: none; /* Ensures users can still click/scroll through it */
+        }
+
+        /* Table Layout & Spacing */
+        .cga-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 12px 0; /* Creates the vertical gaps between columns */
+            min-width: 800px; /* Forces horizontal scroll on mobile to keep layout intact */
+        }
+
+        /* Headers */
+        .cga-table th {
+            font-family: 'Styrene', 'Montserrat', sans-serif;
+            color: #FFFFFF;
+            padding: 18px 10px;
+            border-radius: 6px;
+            font-size: 16px;
+            text-transform: capitalize;
+        }
+        
+        .cga-table th:nth-child(1) { background-color: #5B000B; width: 22%; }
+        .cga-table th:nth-child(2) { background-color: #770A17; width: 30%; }
+        .cga-table th:nth-child(3) { background-color: #98151C; width: 30%; }
+        .cga-table th:nth-child(4) { background-color: #BA1F22; width: 18%; }
+
+        /* Data Cells */
+        .cga-table td {
+            text-align: center;
+            font-size: 15px;
+            color: #333333;
+            background-color: #FDFDFD;
+            border-bottom: 2px solid #EAEAEA;
+            padding: 18px 10px;
+        }
+
+        /* First Column (Orange Pills) */
+        .cga-table td:nth-child(1) {
+            background-color: transparent;
+            border-bottom: none;
+            padding: 6px 0; /* Creates the horizontal gap between pills */
+        }
+
+        .orange-pill {
+            background: linear-gradient(135deg, #FA8B1B, #FDA002);
+            color: #FFFFFF;
+            font-weight: 600;
+            padding: 16px 10px;
+            border-radius: 6px;
+            box-shadow: 0 2px 4px rgba(250, 139, 27, 0.2);
+        }
+    
+    
     /* FOOTER STYLES */
     .main-footer {
         width: 100%;
@@ -21,3 +247,26 @@
         grid-template-columns: 2fr 1fr 1fr;
         gap: 60px;
     }
+
+    .popup-arrow { position: absolute; bottom: -10px; right: 25px; width: 0; height: 0; border-left: 10px solid transparent; border-right: 10px solid transparent; border-top: 10px solid #F5F5F5; }
+    .footer-logo { font-size: 2rem; font-weight: 900; margin-bottom: 20px; }
+    .main-footer h4 { font-size: 1.1rem; margin-bottom: 25px; }
+    .main-footer ul { list-style: none; padding: 0; }
+    .main-footer ul li { margin-bottom: 12px; }
+    .main-footer ul li a { color: white; text-decoration: none; opacity: 0.7; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; text-align: center; font-size: 0.85rem; opacity: 0.6; }
+
+
+/* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .admissions-module h2 {
+                font-size: 28px;
+            }
+            .table-outer-wrapper {
+                padding-right: 0; /* Remove scrollbar padding on mobile */
+            }
+            /* Hide custom scrollbar on mobile so native touch scroll takes over */
+            .table-scroll-container::-webkit-scrollbar {
+                display: none; 
+            }
+        }
