@@ -115,12 +115,37 @@ h1, h2, h3 {
 p { font-style: normal; }  
 
 
+
+    /* HERO SECTION */
+    .community-hero {
+        position: relative;
+        padding: 60px 20px;
+        text-align: center;
+        background: url('https://images.unsplash.com/photo-1758612898304-1a6bb546ac44?auto=format&fit=crop&w=1600') center/cover;
+        color: var(--white);
+    }
+    .hero-overlay-dark {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    .hero-content h1 { font-family: 'Styrene', 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 900; margin-bottom: 20px; }
+    .hero-content p { font-family: 'Source Sans 3', sans-serif; font-size: 1.1rem; line-height: 1.6; opacity: 0.9; }
+
+
         /* Module Container */
         .admissions-module {
-            max-width: 1000px;
+            max-width: 1180px;
             margin: 0 auto;
             text-align: center;
-            padding: 40px 0;
+            padding: 60px 0;
         }
 
         .admissions-module h2 {
@@ -130,11 +155,290 @@ p { font-style: normal; }
             font-weight: 500;
         }
 
-        .admissions-module h2 span {
-            color: #98151C;
-            font-style: italic;
-        }
 
+/* ==========================================
+   STUDENT PERSONA HUB STYLES
+   ========================================== */
+
+.center-buttons {
+  margin-top: 20px;
+  display: inline-block;
+}
+
+.persona-hub {
+  padding: 60px 0 10px 0;
+  background: #fff;
+}
+
+.hub-header h2 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.hub-header {
+    text-align: center;
+    margin-bottom: 50px;
+    max-width: 860px;
+}
+
+.persona-band-bg {
+  position: relative;
+  background: url(https://img.freepik.com/free-photo/motion-urban-street-bright-field_1253-468.jpg?semt=ais_user_personalization&w=740) no-repeat center bottom;
+  background-size: cover;
+  margin-top: 150px;
+  height: 410px; /* Fixed background band height */
+  align-items: flex-end;
+}
+
+/* THE GRADIENT: Middle-High Layer */
+.persona-gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 260px; /* Covers the bottom half of the band */
+  background: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.6) 60%, transparent 100%);
+  z-index: 5; /* Above images, below text */
+  pointer-events: none;
+}
+
+.persona-grid-container {
+  position: absolute;
+  top: -126px; /* Pop out effect */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 520px;
+}
+
+.persona-text-grid-container {
+  position: absolute;
+  top: -90px; /* Pop out effect */
+  left: 50%;
+  margin-left: 15px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 520px;
+  z-index: 10;
+}
+
+/* THE IMAGES: Middle-Low Layer */
+.persona-visual-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  z-index: 2; /* Below the gradient */
+}
+
+.persona-image-box img {
+    width: 90%;
+    height: 562px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+/* THE TEXT: Top Layer */
+.persona-text-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+
+.persona-text-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 20px 40px;
+  text-align: left;
+}
+
+.persona-label {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.55rem;
+  border-left: 4px solid #f9a61a;
+  padding-left: 12px;
+  pointer-events: auto; /* Enable hover on the text areas */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.persona-label h3{
+  margin-bottom: 6px;
+}
+
+/* Reveal Logic */
+.persona-desc {
+  color: var(--white);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 10px;
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  width: 85%;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+
+.persona-text-card.active .persona-desc,
+.persona-text-card:hover .persona-desc {
+  opacity: 1;
+  height: auto;
+  margin-top: 0px;
+  margin-bottom: 20px;
+} 
+
+/* Hide mobile CTA on desktop */
+.persona-mobile-cta {
+    display: none;
+}
+
+/* ==========================================
+   MOBILE OPTIMIZATION: HORIZONTAL CARDS WITH INTERNAL BG
+   ========================================== */
+@media (max-width: 960px) {
+  
+  /* 1. Reset the outer container background to clean white */
+  .persona-band-bg {
+    display: grid;
+    grid-template-columns: 1fr 130px; 
+    row-gap: 45px; /* Keeps the spacing between your cards */
+    height: auto;
+    margin-top: 50px; /* Space for the first card's pop-out image */
+    padding: 20px 16px 60px 16px;
+    box-sizing: border-box;
+    background: #ffffff; /* Surrounding background is now pure white */
+  }
+
+  /* 2. Disable the full-band global overlay since it's now card-specific */
+  .persona-gradient-overlay {
+    display: none;
+  }
+
+  /* 3. Unwrap structural containers to expose items directly to the grid layout */
+  .persona-text-grid-container,
+  .persona-text-grid,
+  .persona-grid-container,
+  .persona-visual-grid {
+    display: contents;
+  }
+
+  /* 4. Map text cards and images to share corresponding rows */
+  .persona-text-grid .persona-text-card:nth-child(1),
+  .persona-visual-grid .persona-image-box:nth-child(1) { grid-row: 1; }
+
+  .persona-text-grid .persona-text-card:nth-child(2),
+  .persona-visual-grid .persona-image-box:nth-child(2) { grid-row: 2; }
+
+  .persona-text-grid .persona-text-card:nth-child(3),
+  .persona-visual-grid .persona-image-box:nth-child(3) { grid-row: 3; }
+
+  .persona-text-grid .persona-text-card:nth-child(4),
+  .persona-visual-grid .persona-image-box:nth-child(4) { grid-row: 4; }
+
+  /* 5. Apply the scenery background and dark overlay directly to the cards */
+  .persona-text-card {
+    grid-column: 1 / -1; /* Spans full width to act as the capsule container */
+    position: relative;
+    z-index: 2;
+    
+    /* Combines the rich dark gradient overlay and scenery background in one property */
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.5) 60%, transparent 100%),  
+                url('https://img.freepik.com/free-photo/motion-urban-street-bright-field_1253-468.jpg?semt=ais_user_personalization&w=740') no-repeat center center;
+    background-size: cover;
+    
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 24px 140px 24px 20px; /* Wide right padding keeps text clear of the portrait */
+    box-sizing: border-box;
+    min-height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Clean shadow to separate the card from the white background */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); 
+  }
+
+  /* 6. Retain size, headlines, and copy specifications */
+  .persona-label {
+    font-size: 1.25rem;
+    line-height: 1.3;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .persona-desc {
+    opacity: 1 !important;
+    height: auto !important;
+    overflow: visible !important;
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  }
+
+  /* 7. Position student illustrations over the right grid column */
+  .persona-image-box {
+    grid-column: 2;
+    position: relative;
+    z-index: 3; /* Placed cleanly above the card background layer */
+    pointer-events: none;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* 8. Maintain layout dimension properties and pop-out boundaries */
+  .persona-image-box img {
+    width: 135px;
+    height: calc(100% + 35px); /* Forces portrait bounds past the top edge */
+    margin-top: -35px; 
+    object-fit: contain;
+    object-position: bottom center;
+    margin-left: 0;
+    margin-right: -10px;
+  }
+
+  /* 7. New CTA Link displayed only on Mobile */
+  .persona-mobile-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--gold-light);
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-decoration: none;
+  }
+  
+  .persona-mobile-cta span {
+    font-size: 1.2rem;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .persona-mobile-cta:hover span {
+    transform: translateX(4px); /* Tiny interaction animation */
+  }
+
+}
+
+
+
+
+
+  
     /* TABLE STYLES */
         /* Table Wrapper for Fade & Scroll */
         .table-outer-wrapper {
@@ -223,6 +527,778 @@ p { font-style: normal; }
             box-shadow: 0 2px 4px rgba(250, 139, 27, 0.2);
         }
     
+
+
+/* ==========================================
+   BENTO SPLIT MODULE STYLES
+   ========================================== */
+
+/* Layout & Spacing Defaults */
+.bento-section {
+    padding: 60px 0; /* Standardized uniform module margins */
+    width: 100%;
+}
+
+.bento-card {
+    border-radius: 32px; /* Distinct Bento Box curved corners */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Color Variation 1: Dark Red Gradient */
+.bento-card--dark-red {
+    background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+}
+
+/* Color Variation 2: Light Beige */
+.bento-card--light-beige {
+    background-color: var(--beige);
+}
+
+/* Color Variation 3: Dark Blue Gradient */
+.bento-card--dark-blue {
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+}
+
+/* Shared Alignment/Typography Helpers */
+.bento-text-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bento-text-col .h2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-family: Styrene, Montserrat, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.bento-text-col .body-1 {
+    margin-top: 0;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+/* Typography inline accents */
+.text-italic { font-style: italic; }
+.text-bold { font-weight: 700; }
+.text-white { color: var(--white); }
+.text-black { color: var(--black); }
+.text-gold { color: var(--gold-light); }
+.text-red { color: var(--red-light); }
+
+/* List Block Component (Variation 2) */
+.bento-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.bento-list li {
+    position: relative;
+    padding-left: 24px;
+    line-height: 1.6;
+}
+
+.bento-list li::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--gold-mid); /* Styled bullet dot accent */
+    border-radius: 50%;
+}
+
+.bento-card--light-beige .bento-list li::before {
+    background-color: var(--gold-mid);
+}
+
+/* Media/Video Handling */
+.bento-media-col {
+    width: 100%;
+}
+
+.bento-video-wrapper {
+    position: relative;
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.bento-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Custom Play Button Design Overlay */
+.bento-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 64px;
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0;
+}
+
+.bento-play-btn svg {
+    margin-left: 2px; /* Visual centering adjustment for triangle */
+    width: 28px;
+    height: 28px;
+}
+
+.bento-play-btn:hover {
+    background-color: var(--white);
+    color: var(--red-reg);
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN (Desktop Upgrades)
+   ========================================== */
+@media (min-width: 992px) {
+    .bento-card {
+        padding: 60px;
+        flex-direction: row;
+        align-items: stretch;
+        gap: 70px;
+    }
+
+    .bento-media-col,
+    .bento-text-col {
+        flex: 1;
+        width: 50%;
+    }
+
+    /* Flip mechanics for alternating layout grids */
+    .bento-card--reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+@media (max-width: 576px) {
+    .bento-card {
+        border-radius: 24px;
+        padding: 30px;
+    }
+    .bento-text-col .h2 {
+        font-size: 28px;
+    }
+    .bento-actions .btn {
+        width: 100%; /* Stack actions beautifully on mobile viewports */
+    }
+}
+
+
+
+/* ==========================================
+   POPOUT MODULE STYLES
+   ========================================== */
+
+
+.popout-feature-section {
+        padding: 60px 20px; /* Extra padding to allow room for the pop-out image */
+        background: #fff;
+        font-family: 'Source Sans 3', sans-serif;
+        overflow: hidden; /* Prevents horizontal scrolling if the image pops out too far right */
+    }
+
+    .popout-container {
+        position: relative;
+        max-width: 1060px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+        border-radius: 30px;
+        padding: 70px 60px;
+        display: flex;
+        align-items: center;
+    }
+
+    /* Content Styling */
+    .popout-content {
+        width: 49%;
+        position: relative;
+        z-index: 5;
+        color: white;
+    }
+
+    .popout-heading {
+        font-size: 2.2rem;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 500;
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .highlight-gold {
+        color: var(--gold-light);
+    }
+
+    .popout-text {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        opacity: 0.9;
+        margin-bottom: 40px;
+        max-width: 90%;
+    }
+
+    /* Buttons */
+    .popout-buttons {
+        display: flex;
+        gap: 20px;
+    }
+
+    .btn-outline-gold {
+        border: 2px solid var(--gold-light);
+        color: var(--gold-light);
+        padding: 10px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 0.75rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-outline-gold:hover {
+        background: rgba(243, 146, 0, 0.1);
+    }
+
+    .btn-solid-gold {
+        background: var(--gold-light);
+        color: #fff;
+        padding: 10px 25px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Styrene', 'Montserrat', sans-serif;
+        font-weight: 800;
+        font-size: 0.75rem;
+        transition: all 0.3s ease;
+    }
+
+    .btn-solid-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 25px rgba(243, 146, 0, 0.4);
+    }
+
+    /* Floating Image Mechanics */
+    .popout-image-wrapper {
+        position: absolute;
+        right: -4%; /* Pushes it outside the right edge */
+        top: -7%; /* Pushes it above the top edge */
+        width: 56%;
+        z-index: 10;
+        pointer-events: none; /* Ensures the image doesn't block clicking nearby things */
+    }
+
+    .floating-laptop {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.4));
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 960px) {
+        .popout-feature-section {
+            padding: 80px 20px;
+        }
+        
+        .popout-container {
+            flex-direction: column-reverse; /* Puts image on top of text on mobile */
+            padding: 40px 30px 50px;
+            margin-top: 60px; /* Room for the image popping out the top */
+        }
+
+        .popout-content {
+            width: 100%;
+            text-align: center;
+        }
+
+        .popout-text {
+            max-width: 100%;
+        }
+
+        .popout-buttons {
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .eyebrow {
+            text-align: center;
+        }
+
+        .bento-text-col .h2 {
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .popout-image-wrapper {
+            position: relative;
+            right: auto;
+            top: auto;
+            margin-top: -120px; /* Pulls image up outside the box */
+            margin-bottom: 30px;
+            width: 90%;
+        }
+    }
+
+
+
+
+/* ==========================================
+   STATS MODULE STYLES
+   ========================================== */
+
+/* Background & Utility Classes */
+.bg-blue-gradient {
+    /* Subtle radial gradient mimicking the draft's lighting, falling back to solid brand blue */
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    background-color: var(--blue-dark);
+}
+
+/* Main Section Layout */
+.stats-module {
+    padding: 60px 0;
+    width: 100%;
+}
+
+.stats-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* Optional Content Column */
+.stats-content {
+    max-width: 100%;
+    text-align: center;
+}
+
+.stats-content .h2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
+    font-family: Styrene, Montserrat, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.stats-content .body-1 {
+    opacity: 0.9;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Stats Grid Container */
+.stats-grid-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* The Grid Itself */
+.stats-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    width: 100%;
+    row-gap: 40px;
+}
+
+/* Individual Stat Items */
+.stat-item {
+    flex: 1 1 40%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stat-number {
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-size: clamp(3rem, 5vw, 3.6rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-family: Styrene, Montserrat, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+/* Vertical Dividers */
+.stat-divider {
+    width: 1px;
+    height: 70px;
+    background-color: rgb(224, 224, 224);
+    flex-shrink: 0;
+}
+
+/* Desktop Margins for 2nd Row */
+.mt-desktop {
+    margin-top: 0;
+}
+
+/* ==========================================
+   RESPONSIVE LAYOUT (Desktop & Tablet)
+   ========================================== */
+@media (min-width: 992px) {
+    .stats-layout {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 80px;
+    }
+
+    .stats-content {
+        flex: 0 0 45%;
+        text-align: left;
+    }
+
+    .stats-content .body-1 {
+        margin: 0;
+        line-height: 1.6;
+        margin-bottom: 30px;
+    }
+
+    .stats-grid-container {
+        flex: 0 0 50%;
+        justify-content: flex-end;
+    }
+
+    .stats-grid {
+        justify-content: space-between;
+        row-gap: 50px;
+    }
+
+    .stat-item {
+        flex: 0 0 45%;
+    }
+
+    /* Apply top margin to the second row elements on desktop */
+    .mt-desktop {
+        margin-top: 20px;
+    }
+}
+
+/* Mobile Adjustments */
+@media (max-width: 576px) {
+    .stats-module {
+        padding: 60px 0;
+    }
+    
+    .stat-number {
+        font-size: 44px; /* Scale down for mobile */
+    }
+    
+    .stat-label {
+        font-size: 14px;
+    }
+
+    /* Hide horizontal dividers on mobile and stack purely vertically */
+    .stat-divider {
+        display: none; 
+    }
+    
+    /* .stats-grid {
+       flex-direction: column;
+       row-gap: 50px;
+    } */
+}
+
+
+        
+/* ==========================================
+   Testimonial Carousel Module
+   ========================================== */
+
+/* Variables matching your mockup */
+:root {
+    --beige: #F5EFEB; /* Background color */
+    --red-reg: #9E1B1B; /* Outline button & italic text */
+    --red-dark: #660E0E; /* Solid button */
+    --text-grey: #555555;
+}
+
+.testimonial-module {
+    background-color: var(--beige);
+    padding: 80px 20px;
+    overflow: hidden; /* Prevents horizontal scroll on the whole page */
+}
+
+.testimonial-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+/* --- Left Content Styles --- */
+.testimonial-content {
+    flex: 0 0 40%; /* Takes up 40% of the space */
+    max-width: 450px;
+}
+
+.eyebrow {
+  font-family: 'Styrene', 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.testimonial-content h2 {
+    line-height: 1.1;
+    color: var(--black);
+    font-size: 2.2rem;
+    font-weight: 500;
+}
+
+.italic-red {
+    font-style: italic;
+    color: var(--red-light);
+}
+
+.testimonial-content p {
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-pill-outline, .btn-pill-solid,.btn-pill-outline-white, .btn-pill-solid-white {
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-pill-outline {
+    border: 2px solid var(--red-reg);
+    color: var(--red-reg);
+}
+
+.btn-pill-outline-white {
+    border: 2px solid var(--white);
+    color: var(--white);
+}
+
+.btn-pill-outline:hover {
+    background-color: var(--red-reg);
+    color: #fff;
+}
+
+.btn-pill-solid {
+    background: linear-gradient(135deg, var(--red-light), var(--red-dark));
+    color: #fff;
+}
+
+.btn-pill-solid-white {
+    background: var(--white);
+    color: var(--red-reg);
+}
+
+.btn-pill-solid:hover {
+    background-color: var(--red-dark);
+    opacity: 80%;
+}
+
+.btn-pill-solid-white:hover {
+    background-color: var(--white);
+    color: var(--red-reg);
+    opacity: 80%;
+}
+
+/* --- Right Carousel Styles --- */
+.testimonial-carousel-wrapper {
+    flex: 1; /* Takes up remaining 60% */
+    position: relative;
+    min-width: 0; /* Important to prevent flexbox blowout */
+}
+
+.carousel-arrows {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-bottom: 15px;
+    padding-right: 40px; /* Aligns with cards before the fade */
+}
+
+.arrow-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--red-reg);
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+    z-index: 10;
+}
+
+.arrow-btn:hover {
+    transform: scale(1.2);
+}
+
+/* The Scrolling Track */
+.testimonial-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hides scrollbar in Firefox */
+    padding-bottom: 10px;
+}
+
+.testimonial-track::-webkit-scrollbar {
+    display: none; /* Hides scrollbar in Chrome/Safari */
+}
+
+/* Individual Cards */
+.testimonial-card {
+    flex: 0 0 320px; /* Fixed width for cards */
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: var(--text-grey);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-divider {
+    border: 0;
+    border-top: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.card-author {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.author-img-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 50%;
+    /* Replace with real image: background-image: url('path'); background-size: cover; */
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-name {
+    font-family: 'Styrene', 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #000;
+}
+
+.author-sub {
+    font-size: 0.8rem;
+    color: var(--red-reg);
+    font-style: italic;
+}
+
+/* --- The Fade Effect --- */
+.carousel-fade {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    background: linear-gradient(to right, rgba(245, 239, 235, 0) 0%, rgba(245, 239, 235, 1) 90%); /* Fades to background color */
+    pointer-events: none; /* Allows user to drag/click cards under the fade */
+}
+
+/* ==========================================
+   Mobile Optimization
+   ========================================== */
+@media (max-width: 992px) {
+    .testimonial-container {
+        flex-direction: column; /* Stacks text on top of carousel */
+        gap: 30px;
+    }
+
+    .testimonial-content {
+        flex: 1;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .testimonial-carousel-wrapper {
+        width: 100%;
+    }
+
+    .carousel-arrows {
+        padding-right: 0;
+        justify-content: center; /* Center arrows on mobile */
+    }
+
+    .carousel-fade {
+        width: 80px; /* Smaller fade on mobile */
+    }
+    
+    .testimonial-card {
+        flex: 0 0 280px; /* Slightly smaller cards on mobile */
+    }
+}
+        
     
     /* FOOTER STYLES */
     .main-footer {
